@@ -4,43 +4,43 @@ Un ouvrage de K. Clément (c) 2019
 
 Table des matières
 
-* [1 Routeurs et protocoles de routage](#Routeurs et protocoles de routage)<br/>
-* [1.1 Routage statique](#Routage statique)<br/>
-* [1.2 RIPv1 et RIPv2](#RIPv1 et RIPv2)<br/>
-* [1.3 EIGRP](#EIGRP)<br/>
-* [1.4 OSPF](#OSPF)<br/>
-* 1.4.1 OSPF en IPv6<br/>
-* [2 Commutateurs et Commutation](#Commutateurs et Commutation)<br/>
-* [2.1 Configuration de base d'un commutateur](#Configuration de base d'un commutateur)<br/>
-* [2.2 Agrégation de liens](#Agrégation de liens)<br/>
-* [2.3 Réseaux locaux virtuels VLANs](#Réseaux locaux virtuels VLANs)<br/>
-* [2.4 VLAN Trunking Protocol VTP](#VLAN Trunking Protocol VTP)<br/>
-* [2.5 Spanning Tree Protocol STP](#Spanning Tree Protocol STP)<br/>
-* [2.6 Routage inter-vlan](#Routage inter-vlan)<br/>
-* [3 Réseaux étendus WAN](#Réseaux étendus WAN)<br/>
-* [3.1 Point-to-Point Protocol PPP](#Point-to-Point Protocol PPP)<br/>
-* [3.2 Frame Relay](#Frame_Relay)<br/>
-* [3.3 Sécurité du réseau](#Sécurité_du_réseau)<br/>
-* 3.3.1 Sécurisation générale du routeur<br/>
-* 3.3.2 Authentification des protocoles de routage<br/>
-* 3.3.3 Cisco SDM et Simple Network Management Protocol SNMP<br/>
-* [3.4 Récupération après la perte de mots de passe et d'IOS](#Récupération_après_la_perte_de_mots_de_passe_et_d'IOS)<br/>
-* 3.4.1 Récupération après la perte de mots de passe sur un routeur<br/>
-* 3.4.2 Récupération d'IOS sur un routeur**<br/>
-* 3.4.3 Récupération après la perte de mots de passe sur un commutateur<br/>
-* 3.4.4 Récupération d'IOS sur un commutateur**<br/>
-* [3.5 Liste de Contrôle d'Accès ACL](#Liste-de-Contrôle-d'Accès-ACL)<br/>
-* 3.5.1 ACL standard<br/>
-* 3.5.2 ACL étendue <br/>
-* 3.5.3 ACL dynamique*<br/>
-* 3.5.4 ACL réflexive <br/>
-* 3.5.5 ACL basée sur le temps <br/>
-* [3.6 Réseaux privés virtuels VPN](#Réseaux privés virtuels VPN)<br/>
-* [3.7 Services d'adressage IP](#Services d'adressage IP*<br/>
-* 3.7.1 Protocole DHCP <br/>
-* 3.7.2 Protocole DHCP v6<br/>
-* 3.7.3 Evolutivité des réseaux avec NAT <br/>
-* [3.8 Adressage IPv6](#Adressage IPv6)<br/>
+* [1 Routeurs et protocoles de routage](#Routeurs)<br/>
+    * [1.1 Routage statique](#Routage)<br/>
+    * [1.2 RIPv1 et RIPv2](#RIPv1)<br/>
+    * [1.3 EIGRP](#EIGRP)<br/>
+    * [1.4 OSPF](#OSPF)<br/>
+        * 1.4.1 OSPF en IPv6<br/>
+* [2 Commutateurs et Commutation](#Commutateurs)<br/>
+    * [2.1 Configuration de base d'un commutateur](#Configuration)<br/>
+    * [2.2 Agrégation de liens](#Agrégation)<br/>
+    * [2.3 Réseaux locaux virtuels VLANs](#Réseaux)<br/>
+    * [2.4 VLAN Trunking Protocol VTP](#VLAN)<br/>
+    * [2.5 Spanning Tree Protocol STP](#Spanning)<br/>
+    * [2.6 Routage inter-vlan](#Routages)<br/>
+* [3 Réseaux étendus WAN](#Réseaux)<br/>
+    * [3.1 Point-to-Point Protocol PPP](#Point-to-Point)<br/>
+    * [3.2 Frame Relay](#Frame)<br/>
+    * [3.3 Sécurité du réseau](#Sécurité)<br/>
+        * 3.3.1 Sécurisation générale du routeur<br/>
+        * 3.3.2 Authentification des protocoles de routage<br/>
+        * 3.3.3 Cisco SDM et Simple Network Management Protocol SNMP<br/>
+    * [3.4 Récupération après la perte de mots de passe et d'IOS](#Récupération)<br/>
+        * 3.4.1 Récupération après la perte de mots de passe sur un routeur<br/>
+        * 3.4.2 Récupération d'IOS sur un routeur**<br/>
+        * 3.4.3 Récupération après la perte de mots de passe sur un commutateur<br/>
+        * 3.4.4 Récupération d'IOS sur un commutateur**<br/>
+    * [3.5 Liste de Contrôle d'Accès ACL](#Liste)<br/>
+        * 3.5.1 ACL standard<br/>
+        * 3.5.2 ACL étendue <br/>
+        * 3.5.3 ACL dynamique*<br/>
+        * 3.5.4 ACL réflexive <br/>
+        * 3.5.5 ACL basée sur le temps <br/>
+    * [3.6 Réseaux privés virtuels VPN](#VPN)<br/>
+    * [3.7 Services d'adressage IP](#Services)<br/>
+        * 3.7.1 Protocole DHCP <br/>
+        * 3.7.2 Protocole DHCP v6<br/>
+        * 3.7.3 Evolutivité des réseaux avec NAT <br/>
+    * [3.8 Adressage IPv6](#Adressage)<br/>
 
 # Introduction
 
@@ -455,7 +455,7 @@ Configuration de Rapid-PVST+
     Switch(config-if)# end
     Switch# clear spanning-tree detected-protocols
     
-## Routage inter-vlan
+## Routages inter-vlan
 Configuration de sous-interfaces sur un Router-on-a-stick 
 
     Router(config)# interface type interface-number
@@ -889,7 +889,7 @@ Il est possible d’inspecter plusieurs protocoles et de placer l’inspection s
 le CBAC modifie la règle d’ACL pour ajouter une permission sur les paquets correspodant avec protocole, ip
 source, ip destination, port source et port destination, cela n’ouvre que les ACL étendues.
     
-## Réseaux privés virtuels VPN
+## VPN (Réseaux privés virtuels)
 Configuration d'un VPN entre deux sites distants, à con gurer sur les routeurs de chaque site
 
     Router(config)# interface tunnel 0
