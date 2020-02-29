@@ -1,5 +1,4 @@
 # Commandes de base de Cisco iOS
----------------------------
  Un article de Koishipédia   
    
 	   
@@ -8,7 +7,7 @@
 _____________________  
 
 #### Cette liste de commande liste les commandes essentielles du mode "console" de Cisco iOS.   
-####La plupart de ces commandes seraient communes au mode console d'autres systèmes.   
+La plupart de ces commandes seraient communes au mode console d'autres systèmes.   
 
 #### La hiérarchie d'exécution (l'ordre à respecter) est comme suit :
    
