@@ -10,33 +10,33 @@ _____________________
 	 
 * [UNIX - Commandes ordinaires](index/commandes-unix-simples)  
 
-* [cmd.exe - Commandes habituelles](index/commandes-DOS)  
+* [cmd.exe - Commandes habituelles](index/commandes-DOS.md)  
 
-* [Cisco iOS - Commandes de base](index/cisco-ios-commandes-base)  
+* [Cisco iOS - Commandes de base](index/cisco.md)  
 
-* [Les Bases d'Active Directory](index/active-directory-bases)  
+* [Les Bases d'Active Directory](index/active-directory-bases.md)  
    
-* [Windows Server](index/windows-server-bases)  
+* [Windows Server](index/windows-server-bases.md)  
 
-* [Le Langage C - Le long tutoriel](index/tutoC)  
+* [Le Langage C - Le long tutoriel](index/tutoC.md)  
   
-* [Les bonnes pratiques](index/pratiques)  
+* [Les bonnes pratiques](index/pratiques.md)  
 
-* [Des explications réseau](index/réseau)
+* [Des explications réseau](index/réseau.md)
     
 <br>
 Les Protocoles (notices et recettes) 
 _________________   
     
-* [Linksys - Configurer un switch](index/linksys-VLAN)    
+* [Linksys - Configurer un switch](index/linksys-VLAN.md)    
   
-* [Écrire un script Batch](index/Batch)  
+* [Écrire un script Batch](index/Batch.md)  
   
-* [Écrire un script Bash](index/Bash)  
+* [Écrire un script Bash](index/Bash.md)  
 
 <br>
-Tâches à faire [\*](index/taches) 
+Tâches à faire [\*](index/taches.md) 
 ___________
 
-* Trouver un stage [liste](index/taches/entreprises)
+* Trouver un stage [liste](index/taches/entreprises.md)
 * Refaire tous les TP de tous les cours.
