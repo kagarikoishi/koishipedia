@@ -74,7 +74,8 @@ _____________
 ---------
 ### Configuration de la sélection du pont racine et des ports racines, désignés et non-désignés 
     Switch(config)# spanning-tree vlan vlan-id root primary 
-    Switch(config)# spanning-tree vlan vlan-id root secondary Switch(config)# spanning-tree vlan vlan-id priority value 
+    Switch(config)# spanning-tree vlan vlan-id root secondary 
+    Switch(config)# spanning-tree vlan vlan-id priority value 
     Switch(config-if)# spanning-tree cost value 
     Switch(config-if)# spanning-tree port-priority value 
     Switch# show spanning-tree [detail | active] 
@@ -94,6 +95,6 @@ Le port est coupé, on peut le réactiver automatiquement après un certain temp
 ### Configuration de Rapid-PVST+ : 
     Switch(config)# spanning-tree mode rapid-pvst 
     Switch(config)# interface type port S
-    witch(config-if)# spanning-tree link-type point-to-point 
+    Switch(config-if)# spanning-tree link-type point-to-point 
     Switch(config-if)# end 
     Switch# clear spanning-tree detected-protocols
