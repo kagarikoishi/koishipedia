@@ -8,7 +8,7 @@ Les carnets de mémoire (commandes, méthodes)
 
 _____________________   
 	 
-* [UNIX - Commandes ordinaires](index/commandes-unix-simples)  
+* [UNIX - Commandes ordinaires](index/commandes-unix-simples.md)  
 
 * [cmd.exe - Commandes habituelles](index/commandes-DOS.md)  
 
