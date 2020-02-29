@@ -1,4 +1,5 @@
 Un ouvrage de K. Clément (c) 2019
+[Le blog de Simon Chamberlain (en anglais)](https://traceroute.home.blog/) est aussi une très bonne lecture à faire en parallèle.
 
 # Commandes Cisco - CCNA Exploration
 
@@ -434,6 +435,7 @@ Configuration de VTP
     
 ## Spanning Tree Protocol STP
 Configuration de la sélection du pont racine et des ports racines, désignés et non-désignés 
+N'oubliez pas que par défaut le spanning tree met de 30 à 50 secondes, RSTP 6 secondes.
 
     Switch(config)# spanning-tree vlan vlan-id root primary
     Switch(config)# spanning-tree vlan vlan-id root secondary
@@ -448,6 +450,7 @@ Configuration de quelques paramètres de SPT
     Switch(config-if)# spanning-tree portfast
     
 Configuration de Rapid-PVST+ 
+PVST+ est un spannning-tree propriétaire de Cisco permettant d'attribuer un switch principal de STP pour un VLAN donné et est compatible avec des switches non-Cisco.
 
     Switch(config)# spanning-tree mode rapid-pvst
     Switch(config)# interface type port
@@ -456,7 +459,7 @@ Configuration de Rapid-PVST+
     Switch# clear spanning-tree detected-protocols
     
 ## Routages inter-vlan
-Configuration de sous-interfaces sur un Router-on-a-stick 
+Configuration de sous-interfaces sur un Router-on-a-stick, un type de routeur configuré uniquement pour faire une connexion inter-VLAN et équipé d'un seul câble. Il a été devancé par les switches niveau 3 qui peubvent faire ces mêmes manipulations.
 
     Router(config)# interface type interface-number
     Router(config-if)# no shutdown
@@ -470,7 +473,7 @@ Activer le routage ip sur le switch
 
     Switch(config)# ip routing
     
-!! Créer des interface pour chaque vlan
+Créer des interface pour chaque vlan
 
     Switch(config)# interface vlan 2
     Switch(config-if)# ip address 234.15.2.1 255.255.255.0
@@ -486,17 +489,28 @@ Activation du protocole hdlc sur une interface série
 
     Router(config-if)# encapsulation hdlc
     
-Activation du protocole ppp sur une interface série 
+Activation du protocole PPP sur une interface série 
 
     Router(config-if)# encapsulation ppp
     Router(config-if)# compress [predictor | stac]
     Router(config-if)# ppp quality percentage
     
-Fonction de rappel PPP (A quoi cela sert-il ? ? ?) 
+Fonction de rappel PPP Microsoft (RFC 1570 - page 11-12)
+Le rappel PPP (CallBack Control Protocol / MS-CBCP) sert à vérifier l'authenticité du client dans une connection point-par-point par Microsoft (MS-NT et Windows 2000).
+Pour plus de précision, voir [ici](https://www.cisco.com/c/en/us/support/docs/dial-access/asynchronous-connections/9554-async-ppp.html).
 
-    # ppp callback [accept | request]
+Il faut préalablement avoir activé l'authentification CHAP ou PAP (voir paragraphes suivants)  
+    <pre>
+    Router(config-if)# dialer map <i>protocol next-hop-address</i> name <i>nomdhôte</i> dial-string 
+    Router(config-if)# ppp callback [accept | request]
+    </pre>     
+Il est possible de mettre une liste d'attente qui peut expirer au bout de x secondes coté client (qui devra alors demander une requête au serveur).
+    <pre>
+    Router(config-if)# dialer hold-queue packets timeout <i>secondes</i>
+    </pre>
+Enfin, le rappel PPP n'est utilisable que sur les réseaux RTC et RNIS.
     
-Protocole d'authenti cation du mot de pass PAP et CHAP  
+#### Protocole d'authentification du mot de passe PAP et CHAP  
 
     Router(config-if)# ppp authentication {chap | chap pap | pap chap | pap} [if-needed] [list-name | default] [callin]
     Router(config)# username name password password
