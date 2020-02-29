@@ -1,4 +1,4 @@
-Un ouvrage de K. Clément
+Un ouvrage de K. Clément (c) 2019
 
 # Commandes Cisco - CCNA Exploration
 
@@ -9,12 +9,14 @@ Table des matières
     1.2 RIPv1 et RIPv2
     1.3 EIGRP
     1.4 OSPF
+    1.4.1 OSPF en IPv6
     2 Commutateurs et Commutation 
     2.1 Configuration de base d'un commutateur
-    2.2 Réseaux locaux virtuels VLANs
-    2.3 VLAN Trunking Protocol VTP
-    2.4 Spanning Tree Protocol STP
-    2.5 Routage inter-vlan
+    2.2 Agrégation de liens
+    2.3 Réseaux locaux virtuels VLANs
+    2.4 VLAN Trunking Protocol VTP
+    2.5 Spanning Tree Protocol STP
+    2.6 Routage inter-vlan
     3 Réseaux étendus WAN 9
     3.1 Point-to-Point Protocol PPP
     3.2 Frame Relay
@@ -36,7 +38,8 @@ Table des matières
     3.6 Réseaux privés virtuels VPN
     3.7 Services d'adressage IP 
     3.7.1 Protocole DHCP 
-    3.7.2 Evolutivité des réseaux avec NAT 
+    3.7.2 Protocole DHCP v6
+    3.7.3 Evolutivité des réseaux avec NAT 
     3.8 Adressage IPv6 
 
 # Introduction
@@ -49,11 +52,29 @@ dans les prochaines sections.
 
 ### Convention d'écriture 
 
-    **italics** indique des arguments dans lesquels l'utilisateur fournit des valeurs
-    [X] indique un élément facultatif
-    | indique un choix facultatif ou obligatoire
-    [X|Y] indique un choix facultatif
-    {X|Y} indique un choix obligatoire
+<table>
+<tr>
+    <td> italique </td> 
+    <td> indique des arguments dans lesquels l'utilisateur fournit des valeurs </td>
+</tr>
+<tr>
+    <td>[X]</td>
+    <td>indique un élément facultatif</td>
+</tr> 
+<tr>
+    <td>|</td>
+    <td>indique un choix facultatif ou obligatoire</td>
+</tr> 
+<tr>
+    <td>[X|Y]</td>
+    <td>indique un choix facultatif </td>
+</tr> 
+<tr>
+    <td>{X|Y}</td>
+    <td>indique un choix obligatoire</td>
+</tr> 
+<td>
+</table>  
     
 Commandes pour changer de mode d'exécution et de configuration 
 
@@ -255,6 +276,24 @@ Visualisation et dépannage d'OSPF
     Router# show ip ospf neighbor
     Router# show interface interface-type interface-number
     Router# show ip protocols
+    
+### 1.4.1 En IPV6
+    
+En IPV6 il y a quelques différences, il faut activer le routage ipv6
+
+    Router(config)# ipv6 unicast-routing
+
+La commande de configuration est différente :
+
+    Router(config)# ipv6 router ospf num. de processus
+    Router(config-rtr)# !! il faut un identifiant
+    Router(config-rtr)# router-id addresseIPV4
+    Router(config-rtr)# passive-interface type numero
+
+Il n’y a pas de network ..., on déclare chaque interface dans sa configuration
+
+    Router(config)# interface type numero
+    Router(config-if)# ipv6 ospf num area numarea
 
 # 2 Commutateurs et Commutation
 ## 2.1 Configuration de base d'un commutateur
@@ -307,7 +346,45 @@ Configuration de la sécurité des ports
     Switch# show port-security [interface interface-id ]
     Switch# show port-security address
     
-## 2.2 Réseaux locaux virtuels VLANs
+## 2.2 Agrégation de liens
+L’agrégation permet de répartir la charge sur plusieurs liens.
+— PAgP (prop. Cisco) : Protocol Agrégation Port, modes compatibles desirable+desirable ou desirable+auto.  
+
+— LACP (ouvert) : Link Agregation Protocol, active+passive ou active+active.  
+
+— Choisir la méthode de répartition  
+
+    Switch(config)# port-channel load-balance [dst-ip|dst-mac|src-dst-ip|src-dst-mac|src-ip|src-mac]
+    
+— Configurer les ports (sur les 2 commutateurs)
+
+Nous pouvons faire une configuration par lot
+
+    Switch(config)# interface range fa0/1 - 4
+    Switch(config-if-range)# channel-group 1-6 mode (on|active|passive|desirable|auto)
+    Switch(config-if-range)# exit
+    
+— La commande précedante crée une interface « port-channel » qu’il faut configurer :
+
+    Switch(config)# interface port-channel 1
+    Switch(config-if)# description liaison agrégée vers ...
+    Switch(config-if)# ...
+    
+— Vérification de la configuration :
+
+Afficher les infos de l’interface virtuelle Port-channel
+
+    Switch# show interface Port-channel
+
+Afficher les interfaces physiques utilisant etherchannel
+
+    Switch# show interfaces etherchannel
+
+Afficher des informations sur etherchannel
+
+    Switch# show etherchannel [summary|port-channel]
+    
+## 2.3 Réseaux locaux virtuels VLANs
 Configuration de VLANs 
 
     Switch(config)# vlan vlan-id
@@ -344,7 +421,7 @@ Dynamic Trunking Protocol DTP
     Switch(config-if)# switchport nonegociate
     Switch# show dtp interface type port
     
-## 2.3 VLAN Trunking Protocol VTP
+## 2.4 VLAN Trunking Protocol VTP
 Configuration de VTP 
 
     Switch(config)# vtp mode {server | client | transparent }
@@ -356,7 +433,7 @@ Configuration de VTP
     Switch# show vtp counters
     Switch# show interfaces trunk
     
-## 2.4 Spanning Tree Protocol STP
+## 2.5 Spanning Tree Protocol STP
 Configuration de la sélection du pont racine et des ports racines, désignés et non-désignés 
 
     Switch(config)# spanning-tree vlan vlan-id root primary
@@ -379,7 +456,7 @@ Configuration de Rapid-PVST+
     Switch(config-if)# end
     Switch# clear spanning-tree detected-protocols
     
-## 2.5 Routage inter-vlan
+## 2.6 Routage inter-vlan
 Configuration de sous-interfaces sur un Router-on-a-stick 
 
     Router(config)# interface type interface-number
@@ -388,6 +465,22 @@ Configuration de sous-interfaces sur un Router-on-a-stick
     Router(config-subif)# encapsulation dot1q vlan-id
     Router(config-subif)# ip address ip-address subnet-mask
 
+Configuration du routage inter-vlan par un switch level3 SVI (Switch Virtual Interface) :
+
+Activer le routage ip sur le switch
+
+    Switch(config)# ip routing
+    
+!! Créer des interface pour chaque vlan
+
+    Switch(config)# interface vlan 2
+    Switch(config-if)# ip address 234.15.2.1 255.255.255.0
+    Switch(config-if)# no shutdown
+    Switch(config)# interface vlan 3
+    Switch(config-if)# ip address 234.15.3.1 255.255.255.0
+    Switch(config-if)# no shutdown
+
+Et c’est tout !
 # 3 Réseaux étendus WAN
 ## 3.1 Point-to-Point Protocol PPP
 Activation du protocole hdlc sur une interface série 
@@ -591,7 +684,7 @@ Configuration d'OSPF avec authentication simple du protocole de routage
     Router(config-if)# ip ospf authentication-key string
     Router# show ip route
     
-Configuration d'OSPF avec authenti cation md5 du protocole de routage 
+Configuration d'OSPF avec authentification md5 du protocole de routage 
 
     Router(config)# interface type port
     Router(config-if)# ip ospf message-digest-key 1 md5 string
@@ -617,7 +710,9 @@ Configuration du routeur pour la prise en charge de SDM :
     Router(config-line)# login local
     Router(config-line)# transport input telnet ssh
     Router(config-line)# exit
-    Configuration de la consignation via le protocole SNMP vers le serveur Syslog :
+    
+Configuration de la consignation via le protocole SNMP vers le serveur Syslog :
+
     Router(config)# logging syslog-server-ip-address
     Router(config)# logging trap {emergencies | alerts | critical | errors | warnings| notifications | informational | debugging}
 
@@ -752,15 +847,17 @@ Configuration d'une ACL étendue nommée
     Router# show access-lists [NAME ]
     
 ### 3.5.3 ACL dynamique
-Exemple de configuration d'une ACL dynamique 
+Permet de lancer une ACL (par exemple pour ouvrir un port) suite à un accès telnet au routeur. Exemple de configuration d'une ACL dynamique 
 
     Router(config)# username name password password
     Router(config)# access-list access-list-number dynamic dynamic-name [timeout minutes ] permit telnet source source-wildcard destination destination-wildcard
     Router(config-if)# ip access-group access-list-number in
     Router(config)# line vty 0 4
     Router(config-line)# autocommand access-enable host timeout minutes
+    
 ### 3.5.4 ACL réfléxive
 Exemple de configuration d'une ACL réflexive 
+
     Router(config)# ip access-list extended OUT-NAME
     Router(config-ext-nacl)# permit protocol source source-wildcard destination destination-wildcard reflect reflect-NAME
     Router(config)# ip access-list extended IN-NAME
@@ -775,6 +872,23 @@ Exemple de configuration d'une ACL basée sur le temps
     Router(config-time-range)# periodic DAYS hh:mm to hh:mm
     Router(config)# access-list ACL-number permit protocol source source-wildcard destination destination-wildcard {eq | neq | gt | lt | range} protocol-number time-range NAME
     Router(config-if)# ip access-group ACL-number {in | out}
+    
+#### 3.5.6 Context-Based Access Control (CBAC)
+
+Associée à une ACL étendu, cela permet de tracer les sessions (tcp, udp, telnet...) qui demanderont un retour
+et de leur ouvrir l’accès. Très utile pour configurer un pare-feu ou tout peut sortir mais rien rentrer.
+    
+    Router(config)# ip inspect name nom {tcp|udp|icmp|...}
+    Router(config)# ip access-list extended 100
+    Router(config-ext-acl)# !! uniquement avec une ACL étendue
+    Router(config-ext-acl)# deny ip any any
+    Router(config)# interface Seriel 0/0/0
+    Router(config-in)# ip access-group 100 in
+    Router(config-in)# ip inspect nom
+    
+Il est possible d’inspecter plusieurs protocoles et de placer l’inspection sur une autre interface. Par contre, comme
+le CBAC modifie la règle d’ACL pour ajouter une permission sur les paquets correspodant avec protocole, ip
+source, ip destination, port source et port destination, cela n’ouvre que les ACL étendues.
     
 ## 3.6 Réseaux privés virtuels VPN
 Configuration d'un VPN entre deux sites distants, à con gurer sur les routeurs de chaque site
@@ -797,6 +911,20 @@ Configuration d'un VPN entre un site et un client
     Router(config-if)# peer default ip address pool POOL_NAME
     Router(config-if)# ppp authentication {ms-chap | chap | pap}
     Router(config)# ip local pool POOL_NAME low-address high-address
+    
+Configuration d’un Tunnel Gre entre deux sites distants, à configurer sur les routeurs de chaque site
+
+    Router(config)# interface tunnel 0
+    Router(config-if)# tunnel mode (gre ip|ipv6ip|...)
+    Router(config-if)# ! adresse public du routeur
+    Router(config-if)# tunnel source wan-source-interface
+    Router(config-if)# ! adresse public de l’autre
+    Router(config-if)# tunnel destination wan-destination-interface
+    Router(config-if)# ! adresse privée de l’interface
+    Router(config-if)# ip address 10.1.1.1 255.255.255.0 ! Ensuite créer la ou les
+    routes nécessaires Router(config)# ip route ip-address mask tunnel 0
+    
+Ce tunnel peut encapsuler des paquets IP (mode gre) ou IPv6 (mode ipv6ip)
 
 ## 3.7 Services d'adressage IP
 ### 3.7.1 Protocole DHCP
@@ -812,6 +940,7 @@ Configuration d'un VPN entre un site et un client
     Router(dhcp-config)# lease {days [hours ] [minutes ] | infinite }
     Router(dhcp-config)# netbios-name-server address [address2 ...address8 ]
     
+
 Configuration d'un relais DHCP :
 
     Router(config-if)# ip helper-address server-address
@@ -824,7 +953,50 @@ Visualisation et dépannage de DHCP :
     Router# show ip dhcp conflict
     Router# debug ip dhcp server events
     
-### 3.7.2 Evolutivité des réseaux avec NAT
+### 3.7.2 Protocole DHCP IPv6
+
+Il est possible de le faire soit  
+
+— sans état : seul les informations annexes sont transmises via DHCP, les client utilisent le protocole
+d’autoconfiguration pour les adresses.  
+
+— avec état : plus proche du fonctionnement IPv4, les client sont prévenu de ne pas utiliser les RA et
+obtiennent adresse et information depuis le routeur (qui garde en mémoire les allocations).  
+
+Sans état (attention, cela ne semble pas fonctionner sous packettracer)
+
+    Router(config)# ipv6 unicast-routing
+    Router(config)# ipv6 dhcp pool nompool
+    Router(config-dhcp)# domain-name nomdedomaine
+    Router(config-dhcp)# dns-server adressedns
+    
+Pour chaque interface, il faut faire l’association avec le pool et prévenir d’ignorer les RA
+
+    Router(config)# interface fa 0/1
+    Router(config-if)# ipv6 dhcp server nompool
+    Router(config-if)# ipv6 nd other-config-flag
+    
+Avec état, il faut prévoir un pool d’adresses à distribuer qui ne contient pas l’adresse du routeur.
+
+    Router(config)# ipv6 unicast-routing
+    Router(config)# ipv6 local pool nompooladresse 2001:0:0:1:1::/80 64
+    Router(config)# ipv6 dhcp pool nompool
+    Router(config-dhcp)# domain-name nomdedomaine
+    Router(config-dhcp)# dns-server adressedns
+    Router(config-dhcp)# prefix-delegation pool nompooladresse
+    
+Pour chaque interface, il faut faire l’association avec le pool et prévenir d’utiliser le serveur dhcp
+
+    Router(config)# interface fa 0/1
+    Router(config-if)# ipv6 addr 2001:0:0:1::1/64
+    Router(config-if)# ipv6 dhcp server nompool
+    Router(config-if)# ipv6 nd managed-config-flag
+    
+Attention, sous packet tracer, il faut que le pool d’adresses ne contienne pas celle du routeur. Ici, cela est
+permis en donnant : 2001:0:0:1:1::/80 pour le pool (ce qui ne contient pas l’adresse du routeur) mais en
+donnant bien 64 comme préfix à utiliser. En réalité, cela fonctionne sans cette sécurité.
+    
+### 3.7.3 Evolutivité des réseaux avec NAT
 Configuration de la NAT statique 
 
     Router(config)# ip nat inside source static local-ip global-ip
@@ -855,7 +1027,9 @@ Configuration de la surcharge NAT première configuration possible
     Router(config-if)# ip nat inside
     Router(config)# interface type number
     Router(config-if)# ip nat outside
-    Configuration de la surcharge NAT deuxième con guration possible :
+    
+Configuration de la surcharge NAT deuxième configuration possible :
+    
     Router(config)# access-list access-list-number permit source [source-wildcard ]
     Router(config)# ip nat pool NAME start-ip end-ip {netmask netmask | prefix-length prefix length }
     Router(config)# ip nat inside source list access-list-number pool NAME overload
@@ -863,7 +1037,7 @@ Configuration de la surcharge NAT première configuration possible
     Router(config-if)# ip nat inside
     Router(config)# interface type number
     Router(config-if)# ip nat outside
-    
+
 Visualisation et dépannage de NAT 
 
     Router# show ip nat translations [verbose]
