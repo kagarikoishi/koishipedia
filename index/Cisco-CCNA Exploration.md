@@ -4,43 +4,43 @@ Un ouvrage de K. Clément (c) 2019
 
 Table des matières
 
-    1 Routeurs et protocoles de routage 
-    1.1 Routage statique
-    1.2 RIPv1 et RIPv2
-    1.3 EIGRP
-    1.4 OSPF
-    1.4.1 OSPF en IPv6
-    2 Commutateurs et Commutation 
-    2.1 Configuration de base d'un commutateur
-    2.2 Agrégation de liens
-    2.3 Réseaux locaux virtuels VLANs
-    2.4 VLAN Trunking Protocol VTP
-    2.5 Spanning Tree Protocol STP
-    2.6 Routage inter-vlan
-    3 Réseaux étendus WAN 9
-    3.1 Point-to-Point Protocol PPP
-    3.2 Frame Relay
-    3.3 Sécurité du réseau
-    3.3.1 Sécurisation générale du routeur
-    3.3.2 Authentification des protocoles de routage
-    3.3.3 Cisco SDM et Simple Network Management Protocol SNMP
-    3.4 Récupération après la perte de mots de passe et d'IOS
-    3.4.1 Récupération après la perte de mots de passe sur un routeur
-    3.4.2 Récupération d'IOS sur un routeur
-    3.4.3 Récupération après la perte de mots de passe sur un commutateur
-    3.4.4 Récupération d'IOS sur un commutateur
-    3.5 Liste de Contrôle d'Accès ACL
-    3.5.1 ACL standard
-    3.5.2 ACL étendue 
-    3.5.3 ACL dynamique 
-    3.5.4 ACL réflexive 
-    3.5.5 ACL basée sur le temps 
-    3.6 Réseaux privés virtuels VPN
-    3.7 Services d'adressage IP 
-    3.7.1 Protocole DHCP 
-    3.7.2 Protocole DHCP v6
-    3.7.3 Evolutivité des réseaux avec NAT 
-    3.8 Adressage IPv6 
+ ** [1 Routeurs et protocoles de routage](#Routeurs et protocoles de routage) 
+ *** [1.1 Routage statique](#Routage statique)
+ *** [1.2 RIPv1 et RIPv2](#RIPv1 et RIPv2)
+ *** [1.3 EIGRP](#EIGRP)
+ *** [1.4 OSPF](#OSPF)
+ **** 1.4.1 OSPF en IPv6
+ ** [2 Commutateurs et Commutation](#Commutateurs et Commutation)
+ *** [2.1 Configuration de base d'un commutateur](#Configuration de base d'un commutateur)
+ *** [2.2 Agrégation de liens](#Agrégation de liens)
+ *** [2.3 Réseaux locaux virtuels VLANs](#Réseaux locaux virtuels VLANs)
+ *** [2.4 VLAN Trunking Protocol VTP](#VLAN Trunking Protocol VTP)
+ *** [2.5 Spanning Tree Protocol STP](#Spanning Tree Protocol STP)
+ *** [2.6 Routage inter-vlan](#Routage inter-vlan)
+ ** [3 Réseaux étendus WAN](#Réseaux étendus WAN)
+ *** [3.1 Point-to-Point Protocol PPP](#Point-to-Point Protocol PPP)
+ *** [3.2 Frame Relay](#Frame Relay)
+ *** [3.3 Sécurité du réseau](#Sécurité du réseau)
+ **** 3.3.1 Sécurisation générale du routeur
+ **** 3.3.2 Authentification des protocoles de routage
+ **** 3.3.3 Cisco SDM et Simple Network Management Protocol SNMP
+ *** [3.4 Récupération après la perte de mots de passe et d'IOS](#Récupération après la perte de mots de passe et d'IOS)
+ **** 3.4.1 Récupération après la perte de mots de passe sur un routeur
+ **** 3.4.2 Récupération d'IOS sur un routeur
+ **** 3.4.3 Récupération après la perte de mots de passe sur un commutateur
+ **** 3.4.4 Récupération d'IOS sur un commutateur
+ *** [3.5 Liste de Contrôle d'Accès ACL](#Liste de Contrôle d'Accès ACL)
+ **** 3.5.1 ACL standard
+ **** 3.5.2 ACL étendue 
+ **** 3.5.3 ACL dynamique 
+ **** 3.5.4 ACL réflexive 
+ **** 3.5.5 ACL basée sur le temps 
+ *** [3.6 Réseaux privés virtuels VPN](#Réseaux privés virtuels VPN)
+ *** [3.7 Services d'adressage IP](#Services d'adressage IP)
+ **** 3.7.1 Protocole DHCP 
+ **** 3.7.2 Protocole DHCP v6
+ **** 3.7.3 Evolutivité des réseaux avec NAT 
+ *** [3.8 Adressage IPv6](#Adressage IPv6)
 
 # Introduction
 
@@ -134,7 +134,7 @@ Configuration de la console et du terminal virtuel
     Router(config-line)# login
     Router(config)# service password-encryption
 
-# 1 Routeurs et protocoles de routage
+# Routeurs et protocoles de routage
 Configuration des interfaces sur un routeur 
 
     Router(config)# interface type port
@@ -146,7 +146,7 @@ Configuration des interfaces sur un routeur
     Router# show ip interface brief
     Router# show ip interface
     
-## 1.1 Routage statique
+## Routage statique
 Cisco Discovery Protocol (CDP)
 
     Router# show cdp neighbors
@@ -172,7 +172,7 @@ Commandes de visualisation et de dépannage pour le routage, valable pour tous l
     Router# undebug ip routing
     Router# undebug all
     
-## 1.2 RIPv1 et RIPv2
+## RIPv1 et RIPv2
 Configuration de RIPv1 
 
     Router(config)# router rip
@@ -205,7 +205,7 @@ Comportement du routage par classe et sans classe
     Router(config)# ip classless
     Router(config)# no ip classless
     
-## 1.3 EIGRP
+## EIGRP
 Configuration d'EIGRP    
 
     Router(config)# router eigrp autonomous-system
@@ -239,7 +239,7 @@ Visualisation et dépannage d'EIGRP
     Router# show ip protocols
     Router# debug eigrp fsm
     
-## 1.4 OSPF
+## OSPF
 Configuration d'OSPF 
 
     Router(config)# router ospf process-id
@@ -295,8 +295,8 @@ Il n’y a pas de network ..., on déclare chaque interface dans sa configuratio
     Router(config)# interface type numero
     Router(config-if)# ipv6 ospf num area numarea
 
-# 2 Commutateurs et Commutation
-## 2.1 Configuration de base d'un commutateur
+# Commutateurs et Commutation
+## Configuration de base d'un commutateur
 
     Configuration de l'interface de gestion sur un commutateur     
     Switch(config)# interface vlan vlan-id
@@ -346,7 +346,7 @@ Configuration de la sécurité des ports
     Switch# show port-security [interface interface-id ]
     Switch# show port-security address
     
-## 2.2 Agrégation de liens
+## Agrégation de liens
 L’agrégation permet de répartir la charge sur plusieurs liens.
 — PAgP (prop. Cisco) : Protocol Agrégation Port, modes compatibles desirable+desirable ou desirable+auto.  
 
@@ -384,7 +384,7 @@ Afficher des informations sur etherchannel
 
     Switch# show etherchannel [summary|port-channel]
     
-## 2.3 Réseaux locaux virtuels VLANs
+## Réseaux locaux virtuels VLANs
 Configuration de VLANs 
 
     Switch(config)# vlan vlan-id
@@ -421,7 +421,7 @@ Dynamic Trunking Protocol DTP
     Switch(config-if)# switchport nonegociate
     Switch# show dtp interface type port
     
-## 2.4 VLAN Trunking Protocol VTP
+## VLAN Trunking Protocol VTP
 Configuration de VTP 
 
     Switch(config)# vtp mode {server | client | transparent }
@@ -433,7 +433,7 @@ Configuration de VTP
     Switch# show vtp counters
     Switch# show interfaces trunk
     
-## 2.5 Spanning Tree Protocol STP
+## Spanning Tree Protocol STP
 Configuration de la sélection du pont racine et des ports racines, désignés et non-désignés 
 
     Switch(config)# spanning-tree vlan vlan-id root primary
@@ -456,7 +456,7 @@ Configuration de Rapid-PVST+
     Switch(config-if)# end
     Switch# clear spanning-tree detected-protocols
     
-## 2.6 Routage inter-vlan
+## Routage inter-vlan
 Configuration de sous-interfaces sur un Router-on-a-stick 
 
     Router(config)# interface type interface-number
@@ -481,8 +481,8 @@ Activer le routage ip sur le switch
     Switch(config-if)# no shutdown
 
 Et c’est tout !
-# 3 Réseaux étendus WAN
-## 3.1 Point-to-Point Protocol PPP
+# Réseaux étendus WAN
+## Point-to-Point Protocol PPP
 Activation du protocole hdlc sur une interface série 
 
     Router(config-if)# encapsulation hdlc
@@ -533,7 +533,7 @@ Visualisation et dépannage d'une interface série
     Router# show controllers
     Router# debug ppp {packet | negotiation | error | authentification | compression | cbcp}
 
-## 3.2 Frame Relay
+## Frame Relay
 Configuration de Frame Relay avec mappage statique 
 
     Router(config-if)# encapsulation frame-relay [cisco | ietf]
@@ -566,7 +566,7 @@ Visualisation et dépannage de Frame Relay
     Router # clear frame-relay-inarp
     Router # debug frame-relay lmi
     
-## 3.3 Sécurité du réseau
+## Sécurité du réseau
 ### 3.3.1 Sécurisation générale du routeur
 Configuration de mots de passe sécurisés et authentification AAA 
 
@@ -716,7 +716,7 @@ Configuration de la consignation via le protocole SNMP vers le serveur Syslog :
     Router(config)# logging syslog-server-ip-address
     Router(config)# logging trap {emergencies | alerts | critical | errors | warnings| notifications | informational | debugging}
 
-## 3.4 Récupération après la perte de mots de passe et d'IOS
+## Récupération après la perte de mots de passe et d'IOS
 Sauvegarde et mise à niveau de l'image logicielle IOS 
 
     Router# ping tftp-server-ip-address
@@ -809,7 +809,7 @@ ou
     Switch(config)# line console 0
     Switch(config-line)# speed 9600
 
-## 3.5 Liste de Contrôle d'Accès ACL
+## Liste de Contrôle d'Accès ACL
 ### 3.5.1 ACL standard
 Configuration d'une ACL standard 
 
@@ -890,7 +890,7 @@ Il est possible d’inspecter plusieurs protocoles et de placer l’inspection s
 le CBAC modifie la règle d’ACL pour ajouter une permission sur les paquets correspodant avec protocole, ip
 source, ip destination, port source et port destination, cela n’ouvre que les ACL étendues.
     
-## 3.6 Réseaux privés virtuels VPN
+## Réseaux privés virtuels VPN
 Configuration d'un VPN entre deux sites distants, à con gurer sur les routeurs de chaque site
 
     Router(config)# interface tunnel 0
@@ -926,7 +926,7 @@ Configuration d’un Tunnel Gre entre deux sites distants, à configurer sur les
     
 Ce tunnel peut encapsuler des paquets IP (mode gre) ou IPv6 (mode ipv6ip)
 
-## 3.7 Services d'adressage IP
+## Services d'adressage IP
 ### 3.7.1 Protocole DHCP
 
     Configuration d'un serveur DHCP 
@@ -1048,7 +1048,7 @@ Visualisation et dépannage de NAT
     Router# clear ip nat translation protocol inside global-ip global-port local-ip local-port [outside local-ip local-port global-ip global-port ]
     Router# debug ip nat [detailed]
     
-## 3.8 Adressage IPv6
+## Adressage IPv6
 Configuration de IPv6 
 
     RouterX(config)# ipv6 unicast-routing
