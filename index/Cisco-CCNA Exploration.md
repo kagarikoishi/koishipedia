@@ -1,56 +1,95 @@
 Un ouvrage de Clément K.
 
-Commandes Cisco
-CCNA Exploration
+# Commandes Cisco - CCNA Exploration
+
 Table des matières
-1 Routeurs et protocoles de routage 3
+
+1 Routeurs et protocoles de routage 
+
 1.1 Routage statique
+
 1.2 RIPv1 et RIPv2
+
 1.3 EIGRP
+
 1.4 OSPF
-2 Commutateurs et Commutation 6
+
+2 Commutateurs et Commutation 
+
 2.1 Configuration de base d'un commutateur
+
 2.2 Réseaux locaux virtuels VLANs
 
 2.3 VLAN Trunking Protocol VTP
+
 2.4 Spanning Tree Protocol STP
+
 2.5 Routage inter-vlan
+
 3 Réseaux étendus WAN 9
+
 3.1 Point-to-Point Protocol PPP
+
 3.2 Frame Relay
+
 3.3 Sécurité du réseau
 
 3.3.1 Sécurisation générale du routeur
+
 3.3.2 Authentification des protocoles de routage
+
 3.3.3 Cisco SDM et Simple Network Management Protocol SNMP
+
 3.4 Récupération après la perte de mots de passe et d'IOS
+
 3.4.1 Récupération après la perte de mots de passe sur un routeur
+
 3.4.2 Récupération d'IOS sur un routeur
+
 3.4.3 Récupération après la perte de mots de passe sur un commutateur
+
 3.4.4 Récupération d'IOS sur un commutateur
+
 3.5 Liste de Contrôle d'Accès ACL
+
 3.5.1 ACL standard
+
 3.5.2 ACL étendue 
+
 3.5.3 ACL dynamique 
+
 3.5.4 ACL réflexive 
+
 3.5.5 ACL basée sur le temps 
+
 3.6 Réseaux privés virtuels VPN
+
 3.7 Services d'adressage IP 
+
 3.7.1 Protocole DHCP 
+
 3.7.2 Evolutivité des réseaux avec NAT 
+
 3.8 Adressage IPv6 
 
-Introduction
-Cette documentation regroupe toutes les commandes utilisées sur les routeurs et commutateurs CISCO et vues dans les cours du CCNA Exploration. En introduction seront présentées les commandes permettant de configurer les bases du routeur et du commutateur tels que nom de l'équipement, mots de passe, bannière,commandes de sauvegarde, de visualisation et configuration basique d'interfaces.
+# Introduction
+
+Cette documentation regroupe toutes les commandes utilisées sur les routeurs et commutateurs CISCO et vues dans les cours du CCNA Exploration.  
+En introduction seront présentées les commandes permettant de configurer les bases du routeur et du commutateur tels que nom de l'équipement, mots de passe, bannière,commandes de sauvegarde, de visualisation et configuration basique d'interfaces.  
+
 Par la suite, les commandes spécifiques aux routeurs et aux commutateurs seront présentées respectivement
-dans les prochaines sections.
-Convention d'écriture :
+dans les prochaines sections.  
+
+### Convention d'écriture 
+
     **italics** indique des arguments dans lesquels l'utilisateur fournit des valeurs
     [X] indique un élément facultatif
     | indique un choix facultatif ou obligatoire
     [X|Y] indique un choix facultatif
     {X|Y} indique un choix obligatoire
+    
 Commandes pour changer de mode d'exécution et de configuration 
+
     Router> enable
     Router# configure terminal
     Router(config)#
@@ -58,33 +97,45 @@ Commandes pour changer de mode d'exécution et de configuration
     Router# disable
     Router>
     Router#?
+    
 Outils de diagnostic 
+
     Router# ping ip-address
     Router# traceroute ip-address
+    
 Visualisation de l'état de l'équipement 
+
     Router# show version
     Router# show flash
     Router# show memory
     Router# show interfaces
     Switch# show history
     Switch# terminal history {size number }
+    
 Visualisation et sauvegarde de la configuration
+
     Router# show running-config
     Router# show startup-config
     Router# copy running-config startup-config
     Router# copy running-config tftp:
     Switch# copy system:running-config tftp:[[[//location ]/directory ]/filename ]
     Switch# copy nvram:startup-config tftp:[[[//location ]/directory ]/filename ]
+    
 Suppression du fichier de configuration 
+
     Router# erase nvram:startup-config
     Router# erase startup-config
+    
 Configuration de base d'un équipement CISCO 
+
     Router(config)# hostname router-name
     Router(config)# enable password password
     Router(config)# enable secret password
     Router(config)# banner motd # message #
     Router(config)# banner login # message #
+    
 Configuration de la console et du terminal virtuel 
+
     Router(config)# line console 0
     Router(config-line)# password password
     Router(config-line)# login
@@ -96,7 +147,8 @@ Configuration de la console et du terminal virtuel
     Router(config)# service password-encryption
 
 # 1 Routeurs et protocoles de routage
-Configuration des interfaces sur un routeur :
+Configuration des interfaces sur un routeur 
+
     Router(config)# interface type port
     Router(config-if)# ip address ip-address subnet-mask
     Router(config-if)# description description
@@ -105,17 +157,23 @@ Configuration des interfaces sur un routeur :
     Router(config-if)# exit
     Router# show ip interface brief
     Router# show ip interface
+    
 ## 1.1 Routage statique
-Cisco Discovery Protocol (CDP) 
+Cisco Discovery Protocol (CDP)
+
     Router# show cdp neighbors
     Router# show cdp neighbors detail
     Router(config)# no cdp run
     Router(config-if)# no cdp enable
+    
 Configuration de routes statiques et route statique par défaut 
+
     Router(config)# ip route prefix mask {ip-address | interface-type interface-number [ip-address ]} [distance ] [name ] [permanent] [tag tag ]
     Router(config)# ip route network-address subnet-mask {ip-address |exit-interface }
     Router(config)# ip route 0.0.0.0 0.0.0.0 [exit-interface | ip-address ]
-Commandes de visualisation et de dépannage pour le routage, valable pour tous les protocoles de routage 
+    
+Commandes de visualisation et de dépannage pour le routage, valable pour tous les protocoles de routage
+
     Router# ping ip-address
     Router# traceroute ip-address
     Router# show ip route
@@ -125,48 +183,65 @@ Commandes de visualisation et de dépannage pour le routage, valable pour tous l
     Router# debug ip routing
     Router# undebug ip routing
     Router# undebug all
+    
 ## 1.2 RIPv1 et RIPv2
 Configuration de RIPv1 
+
     Router(config)# router rip
     Router(config-router)# version 1
     Router(config-router)# network directly-connected-classful-address
     Router(config-router)# passive-interface interface-type interface-number
+    
 Configuration de RIPv2 
+
     Router(config)# router rip
     Router(config-router)# version 2
     Router(config-router)# network directly-connected-classful-address
     Router(config-router)# passive-interface interface-type interface-number
     Router(config-router)# no auto-summary
+    
 Redistribution de route statique et propagation de la route par défaut 
+
     Router(config-router)# redistribute static
     Router(config-router)# default-information originate
+    
 Dépannage de RIP 
+
     Router# show ip route
     Router# show ip rip database
     Router# show ip protocols
     Router# debug ip rip
+    
 Comportement du routage par classe et sans classe 
+
     Router(config)# ip classless
     Router(config)# no ip classless
 ## 1.3 EIGRP
-Configuration d'EIGRP     
+Configuration d'EIGRP    
+
     Router(config)# router eigrp autonomous-system
     Router(config-router)# network network-address [wildcard-mask ]
     Router(config-router)# passive-interface interface-type interface-number
     Router(config-router)# no auto-summary
-Propagation de la route par défaut et résumé de réseaux     
+    
+Propagation de la route par défaut et résumé de réseaux   
+
     Router(config)# ip route 0.0.0.0 0.0.0.0 [exit-interface | ip-address ]
     Router(config-router)# redistribute static
     Router(config)# ip default-network network-address
     Router(config-if)# ip summary-address eigrp as-number network-address subnet-mask
-Configuration de bande passante et autres caractéristiques pour le calcul de la métrique d'EIGRP    
+    
+Configuration de bande passante et autres caractéristiques pour le calcul de la métrique d'EIGRP  
+
     Router(config-router)# metric weights tos k1 k2 k3 k4 k5
     Router(config-if)# bandwidth bw-kbps
     Router(config-if)# ip bandwidth-percent eigrp as-number percent
     Router# show interface interface-type interface-number
     Router(config-if)# ip hello-interval eigrp as-number seconds
     Router(config-if)# ip hold-time eigrp as-number seconds
+    
 Visualisation et dépannage d'EIGRP 
+
     Router# show ip eigrp neighbors
     Router# show ip eigrp topology [network | all-links]
     Router# show ip route
@@ -174,8 +249,10 @@ Visualisation et dépannage d'EIGRP
     Router# show interface interface-type interface-number
     Router# show ip protocols
     Router# debug eigrp fsm
+    
 ## 1.4 OSPF
 Configuration d'OSPF 
+
     Router(config)# router ospf process-id
     Router(config-router)# network network-address wildcard-mask area area-id
     Router(config-router)# passive-interface interface-type interface-number
