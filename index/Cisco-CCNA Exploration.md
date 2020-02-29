@@ -1,76 +1,43 @@
-Un ouvrage de Clément K.
+Un ouvrage de K. Clément
 
 # Commandes Cisco - CCNA Exploration
 
 Table des matières
 
-1 Routeurs et protocoles de routage 
-
-1.1 Routage statique
-
-1.2 RIPv1 et RIPv2
-
-1.3 EIGRP
-
-1.4 OSPF
-
-2 Commutateurs et Commutation 
-
-2.1 Configuration de base d'un commutateur
-
-2.2 Réseaux locaux virtuels VLANs
-
-2.3 VLAN Trunking Protocol VTP
-
-2.4 Spanning Tree Protocol STP
-
-2.5 Routage inter-vlan
-
-3 Réseaux étendus WAN 9
-
-3.1 Point-to-Point Protocol PPP
-
-3.2 Frame Relay
-
-3.3 Sécurité du réseau
-
-3.3.1 Sécurisation générale du routeur
-
-3.3.2 Authentification des protocoles de routage
-
-3.3.3 Cisco SDM et Simple Network Management Protocol SNMP
-
-3.4 Récupération après la perte de mots de passe et d'IOS
-
-3.4.1 Récupération après la perte de mots de passe sur un routeur
-
-3.4.2 Récupération d'IOS sur un routeur
-
-3.4.3 Récupération après la perte de mots de passe sur un commutateur
-
-3.4.4 Récupération d'IOS sur un commutateur
-
-3.5 Liste de Contrôle d'Accès ACL
-
-3.5.1 ACL standard
-
-3.5.2 ACL étendue 
-
-3.5.3 ACL dynamique 
-
-3.5.4 ACL réflexive 
-
-3.5.5 ACL basée sur le temps 
-
-3.6 Réseaux privés virtuels VPN
-
-3.7 Services d'adressage IP 
-
-3.7.1 Protocole DHCP 
-
-3.7.2 Evolutivité des réseaux avec NAT 
-
-3.8 Adressage IPv6 
+    1 Routeurs et protocoles de routage 
+    1.1 Routage statique
+    1.2 RIPv1 et RIPv2
+    1.3 EIGRP
+    1.4 OSPF
+    2 Commutateurs et Commutation 
+    2.1 Configuration de base d'un commutateur
+    2.2 Réseaux locaux virtuels VLANs
+    2.3 VLAN Trunking Protocol VTP
+    2.4 Spanning Tree Protocol STP
+    2.5 Routage inter-vlan
+    3 Réseaux étendus WAN 9
+    3.1 Point-to-Point Protocol PPP
+    3.2 Frame Relay
+    3.3 Sécurité du réseau
+    3.3.1 Sécurisation générale du routeur
+    3.3.2 Authentification des protocoles de routage
+    3.3.3 Cisco SDM et Simple Network Management Protocol SNMP
+    3.4 Récupération après la perte de mots de passe et d'IOS
+    3.4.1 Récupération après la perte de mots de passe sur un routeur
+    3.4.2 Récupération d'IOS sur un routeur
+    3.4.3 Récupération après la perte de mots de passe sur un commutateur
+    3.4.4 Récupération d'IOS sur un commutateur
+    3.5 Liste de Contrôle d'Accès ACL
+    3.5.1 ACL standard
+    3.5.2 ACL étendue 
+    3.5.3 ACL dynamique 
+    3.5.4 ACL réflexive 
+    3.5.5 ACL basée sur le temps 
+    3.6 Réseaux privés virtuels VPN
+    3.7 Services d'adressage IP 
+    3.7.1 Protocole DHCP 
+    3.7.2 Evolutivité des réseaux avec NAT 
+    3.8 Adressage IPv6 
 
 # Introduction
 
@@ -216,6 +183,7 @@ Comportement du routage par classe et sans classe
 
     Router(config)# ip classless
     Router(config)# no ip classless
+    
 ## 1.3 EIGRP
 Configuration d'EIGRP    
 
@@ -256,23 +224,31 @@ Configuration d'OSPF
     Router(config)# router ospf process-id
     Router(config-router)# network network-address wildcard-mask area area-id
     Router(config-router)# passive-interface interface-type interface-number
-Configuration de l'ID du routeur en configurant une interface de bouclage (Loopback) ou avec la commande router-id     
+    
+Configuration de l'ID du routeur en configurant une interface de bouclage (Loopback) ou avec la commande router-id   
+
     Router(config-router)# router-id ip-address
     Router(config-if)#ip ospf priority {0 255 }
     Router(config)#interface loopback number
     Router(config-if)#ip address ip-address subnet-mask
     Router#clear ip ospf process
+    
 Configuration de la bande passante ou du coût pour le calcul de la métrique d'OSPF 
+
     Router(config-router)# auto-cost reference-bandwidth value-mbps
     Router(config-if)# bandwidth bw-kbps
     Router(config-if)# ip ospf cost cost
     Router# show interface interface-type interface-number
     Router(config-if)# ip ospf hello-interval seconds
     Router(config-if)# ip ospf dead-interval seconds
+    
 Propagation de la route par défaut 
+
     Router(config)# ip route 0.0.0.0 0.0.0.0 [exit-interface | ip-address ]
     Router(config-router)# default-information originate
+    
 Visualisation et dépannage d'OSPF 
+
     Router# show ip route
     Router# show ip interface brief
     Router# show ip ospf [interface interface-type interface-number ]
@@ -282,6 +258,7 @@ Visualisation et dépannage d'OSPF
 
 # 2 Commutateurs et Commutation
 ## 2.1 Configuration de base d'un commutateur
+
     Configuration de l'interface de gestion sur un commutateur     
     Switch(config)# interface vlan vlan-id
     Switch(config-if)# ip address ip-address subnet-mask
@@ -295,23 +272,33 @@ Visualisation et dépannage d'OSPF
     Switch(config)# ip default-gateway ip-address
     Switch# show ip interface brief
     Switch# show ip interface
+    
 Configuration d'options sur un port du commutateur 
+
     Switch(config-if)# duplex {auto | full | half}
     Switch(config-if)# speed {auto | value-bps }
     Switch(config-if)# mdix auto
-Possibilité d'activer l'interface web pour la con guration du commutateur :
+    
+Possibilité d'activer l'interface web pour la con guration du commutateur 
+
     Switch(config)# ip http authentication enable
     Switch(config)# ip http server
-Gestion de la table d'adresse MAC du commutateur 
+    
+Gestion de la table d'adresse MAC du commutateur
+
     Switch# show mac-address-table
-    Switch(config)# mac-address-table static MAC-address vlan {1-4096 | ALL} interface     interface-id
-Configuration de la sécurité sur les commutateurs. La con guration de Secure Shell SSH est traitée dans la prochaine section. Con guration de la surveillance DHCP 
+    Switch(config)# mac-address-table static MAC-address vlan {1-4096 | ALL} interface interface-id
+    
+Configuration de la sécurité sur les commutateurs. La con guration de Secure Shell SSH est traitée dans la prochaine section. Configuration de la surveillance DHCP 
+
     Switch(config)# ip dhcp snooping
     Switch(config)# ip dhcp snooping vlan number [number ]
     Switch(config-if)# ip dhcp snooping trust
     Switch(config-if)# ip dhcp snooping limit rate value
     Switch# show ip dhcp snooping
+    
 Configuration de la sécurité des ports 
+
     Switch(config-if)# switchport port-security
     Switch(config-if)# switchport port-security maximum number
     Switch(config-if)# switchport port-security mac-address mac-address
@@ -319,20 +306,26 @@ Configuration de la sécurité des ports
     Switch(config-if)# switchport port-security violation {shutdown | restrict |protect}
     Switch# show port-security [interface interface-id ]
     Switch# show port-security address
+    
 ## 2.2 Réseaux locaux virtuels VLANs
 Configuration de VLANs 
+
     Switch(config)# vlan vlan-id
     Switch(config-vlan)# name vlan-name
     Switch# show vlan [brief | id vlan-id | name vlan-name | summary]
     Switch# show interfaces [interface-id | vlan vlan-id ] | switchport
     Switch# delete flash:vlan.dat
+    
 Configuration de base de VLANs avec VLAN VoIP 
+
     Switch(config)# interface type port
     Switch(config-if)# switchport mode access
     Switch(config-if)# switchport access vlan vlan-id
     Switch(config-if)# mls qos trust cos
     Switch(config-if)# switchport voice vlan voice-vlan-id
+    
 Configuration d'agrégations de VLANs (Trunk) 
+
     Switch(config)# interface type port
     Switch(config-if)# switchport mode trunk
     Switch(config-if)# switchport trunk native vlan vlan-id
@@ -340,7 +333,9 @@ Configuration d'agrégations de VLANs (Trunk)
     Switch(config-if)# switchport trunk allowed vlan add vlan-id
     Switch# show interfaces id-interface switchport
     Switch# show interfaces trunk
-Dynamic Trunking Protocol DTP     
+    
+Dynamic Trunking Protocol DTP   
+
     Switch(config)# interface type port
     Switch(config-if)# switchport mode access
     Switch(config-if)# switchport mode trunk
@@ -348,8 +343,10 @@ Dynamic Trunking Protocol DTP
     Switch(config-if)# switchport mode dynamic desirable
     Switch(config-if)# switchport nonegociate
     Switch# show dtp interface type port
+    
 ## 2.3 VLAN Trunking Protocol VTP
 Configuration de VTP 
+
     Switch(config)# vtp mode {server | client | transparent }
     Switch(config)# vtp domain domain-name
     Switch(config)# vtp password password
@@ -358,25 +355,33 @@ Configuration de VTP
     Switch# show vtp status
     Switch# show vtp counters
     Switch# show interfaces trunk
+    
 ## 2.4 Spanning Tree Protocol STP
 Configuration de la sélection du pont racine et des ports racines, désignés et non-désignés 
+
     Switch(config)# spanning-tree vlan vlan-id root primary
     Switch(config)# spanning-tree vlan vlan-id root secondary
     Switch(config)# spanning-tree vlan vlan-id priority value
     Switch(config-if)# spanning-tree cost value
     Switch(config-if)# spanning-tree port-priority value
     Switch# show spanning-tree [detail | active]
+    
 Configuration de quelques paramètres de SPT 
+
     Switch(config)# spanning-tree vlan vlan-id root primary diameter value
     Switch(config-if)# spanning-tree portfast
-Configuration de Rapid-PVST+ :
+    
+Configuration de Rapid-PVST+ 
+
     Switch(config)# spanning-tree mode rapid-pvst
     Switch(config)# interface type port
     Switch(config-if)# spanning-tree link-type point-to-point
     Switch(config-if)# end
     Switch# clear spanning-tree detected-protocols
+    
 ## 2.5 Routage inter-vlan
 Configuration de sous-interfaces sur un Router-on-a-stick 
+
     Router(config)# interface type interface-number
     Router(config-if)# no shutdown
     Router(config-if)# interface type interface-number.subinterface-number
@@ -386,18 +391,27 @@ Configuration de sous-interfaces sur un Router-on-a-stick
 # 3 Réseaux étendus WAN
 ## 3.1 Point-to-Point Protocol PPP
 Activation du protocole hdlc sur une interface série 
+
     Router(config-if)# encapsulation hdlc
+    
 Activation du protocole ppp sur une interface série 
+
     Router(config-if)# encapsulation ppp
     Router(config-if)# compress [predictor | stac]
     Router(config-if)# ppp quality percentage
+    
 Fonction de rappel PPP (A quoi cela sert-il ? ? ?) 
+
     # ppp callback [accept | request]
-Protocole d'authenti cation du mot de pass PAP et CHAP     
+    
+Protocole d'authenti cation du mot de pass PAP et CHAP  
+
     Router(config-if)# ppp authentication {chap | chap pap | pap chap | pap} [if-needed] [list-name | default] [callin]
     Router(config)# username name password password
     Router(config-if)# ppp pap sent-username name password password
+    
 Exemple de configuration de PAP entre deux routeurs R1 et R2 
+
     R1(config)# username User2 password User2-password
     R1(config-if)# encapsulation ppp
     R1(config-if)# ppp authentication pap
@@ -406,7 +420,9 @@ Exemple de configuration de PAP entre deux routeurs R1 et R2
     R2(config-if)# encapsulation ppp
     R2(config-if)# ppp authentication pap
     R2(config-if)# ppp pap sent-username User2 password User2-password
+    
 Même exemple mais en utilisant CHAP 
+
     R1(config)# username User2 password User2-password
     R1(config-if)# encapsulation ppp
     R1(config-if)# ppp authentication chap
@@ -417,29 +433,38 @@ Même exemple mais en utilisant CHAP
     R2(config-if)# ppp authentication chap
     R2(config-if)# ppp chap hostname User2
     R2(config-if)# ppp chap password User2-password
+    
 Visualisation et dépannage d'une interface série 
+
     Router# show interfaces serial interface-number
     Router# show controllers
     Router# debug ppp {packet | negotiation | error | authentification | compression | cbcp}
 
 ## 3.2 Frame Relay
 Configuration de Frame Relay avec mappage statique 
+
     Router(config-if)# encapsulation frame-relay [cisco | ietf]
     Router(config-if)# bandwidth bw-kbps
     Router(config-if)# no frame-relay inverse-arp
     Router(config-if)# frame-relay map protocol protocol-address dlci [broadcast] [ietf] [cisco]
     Router# show frame-relay map
+    
 Interface de supervision locale LMI 
+
     Router# show frame-relay lmi
     Router# frame-relay lmi-type [cisco | ansi | q933a]
+    
 Configuration de sous-interfaces Frame Relay 
+
     Router(config)# interface serial interface
     Router(config-if)# encapsulation frame-relay
     Router(config-if)# interface serial subinterface_number [multipoint |point-to-point]
     Router(config-subif)# ip address ip-address subnet-mask
     Router(config-subif)# frame-relay interface-dlci dlci-number
     Router(config-if)# no shutdown
+    
 Visualisation et dépannage de Frame Relay
+
     Router# show interfaces
     Router# show frame-relay lmi
     Router# show frame-relay pvc [interface interface ] [dlci]
@@ -447,9 +472,11 @@ Visualisation et dépannage de Frame Relay
     Router # show frame-relay map
     Router # clear frame-relay-inarp
     Router # debug frame-relay lmi
+    
 ## 3.3 Sécurité du réseau
 ### 3.3.1 Sécurisation générale du routeur
 Configuration de mots de passe sécurisés et authentification AAA 
+
     Router(config)# aaa new-model
     Router(config)# aaa authentication login LOCAL_AUTH local
     Router(config)# line console 0
@@ -460,7 +487,9 @@ Configuration de mots de passe sécurisés et authentification AAA
     Router# username username secret password
     Router(config)# service password-encryption
     Router(config)# security passwords min-length number
+    
 Exemple de chiffrement de mots de passe 
+
     R1(config)# username Student password cisco123
     R1(config)# do show run | include username username
     Student password 0 cisco123
@@ -472,25 +501,33 @@ Exemple de chiffrement de mots de passe
     R1(config)# do show run | include username 
     username Student secret 5 $1$z245$lVSTJzuYgdQDJiacwP2Tv/
     R1(config)#
+    
 Désactivation de la ligne auxiliaire 
+
     Router(config)# line aux 0
     Router(config-line)# no password
     Router(config-line)# login
     Router(config-line)# exit
+    
 Configuration des lignes de terminaux virtuels VTY pour Telnet et SSH
+
     Router(config)# line vty 0 4
     Router(config-line)# no transport input
     Router(config-line)# transport input telnet ssh
     Router(config-line)# exit
     Router(config)# login block-for seconds attempt tries within seconds
     Router(config)# security authentication failure rate threshold-rate log
+    
 Configuration des lignes de terminaux virtuels VTY uniquement pour SSH 
+
     Router(config)# line vty 0 4
     Router(config-line)# no transport input
     Router(config-line)# transport input ssh
     Router(config-line)# exec-timeout number
     Router(config)# service tcp-keepalives-in
+    
 Configuration de SSH 
+
     Router(config)# ip ssh version 2
     Router(config)# hostname hostname
     Router(config)# ip domain-name domain-name
@@ -503,7 +540,9 @@ Configuration de SSH
     Router(config)# authentification-retries number
     Router# show ip ssh
     Router# show ssh
+    
 Désactivation des services non utilisés 
+
     Router# show running-config
     Router(config)# no service tcp-small-servers
     Router(config)# no service udp-small-servers
@@ -516,10 +555,12 @@ Désactivation des services non utilisés
     Router(config)# no ip source-route
     Router(config)# no ip classless
     Router(config-if)# shutdown
-Router(config-if)# no ip directed-broadcast
-Router(config-if)# no ip proxy-arp
+    Router(config-if)# no ip directed-broadcast
+    Router(config-if)# no ip proxy-arp
+    
 ### 3.3.2 Authentification des protocoles de routage
 Configuration de RIPv2 avec authenti cation du protocole de routage
+
     Router(config)# router rip
     Router(config-router)# passive-interface default
     Router(config-router)# no passive-interface interface-type interface-number
@@ -530,7 +571,9 @@ Configuration de RIPv2 avec authenti cation du protocole de routage
     Router(config-if)# ip rip authentification mode md5
     Router(config-if)# ip rip authentification key-chain RIP_KEY
     Router # show ip route
+    
 Configuration d'EIGRP avec authenti cation du protocole de routage 
+
     Router(config)# key chain EIGRP_KEY
     Router(config-keychain)# key 1
     Router(config-keychain-key)# key-string string
@@ -538,24 +581,32 @@ Configuration d'EIGRP avec authenti cation du protocole de routage
     Router(config-if)# ip authentification mode eigrp as md5
     Router(config-if)# ip authentification key-chain eigrp as EIGRP_KEY
     Router # show ip route
+    
 Configuration d'OSPF avec authentication simple du protocole de routage 
+
     Router(config)# router ospf process-id
     Router(config-router)# area area-id authentification
     Router(config)# interface type port    
     Router(config-if)# ip ospf authentication
     Router(config-if)# ip ospf authentication-key string
     Router# show ip route
-Configuration d'OSPF avec authenti cation md5 du protocole de routage :
+    
+Configuration d'OSPF avec authenti cation md5 du protocole de routage 
+
     Router(config)# interface type port
     Router(config-if)# ip ospf message-digest-key 1 md5 string
     Router(config-if)# ip ospf authentication message-digest
     Router(config)# router ospf process-id
     Router(config-router)# area area-id authentication message-digest
     Router# show ip route
+    
 ### 3.3.3 Cisco SDM et Simple Network Management Protocol SNMP
 Processus de sécurisation automatique du routeur :
+
     Router# auto secure
+    
 Configuration du routeur pour la prise en charge de SDM :
+
     Router# configure terminal
     Router(config)# ip http server
     Router(config)# ip http secure-server
@@ -572,6 +623,7 @@ Configuration du routeur pour la prise en charge de SDM :
 
 ## 3.4 Récupération après la perte de mots de passe et d'IOS
 Sauvegarde et mise à niveau de l'image logicielle IOS 
+
     Router# ping tftp-server-ip-address
     Router# show flash:
     Router# copy flash:old-ios tftp:
@@ -579,15 +631,22 @@ Sauvegarde et mise à niveau de l'image logicielle IOS
     Router(config)# boot system flash new-ios.bin
     Router# copy running-config startup-config
     Router# reload
-3.4.1 Récupération après la perte de mots de passe sur un routeur
-1. Notez la valeur du registre avec la commande suivante 
+    
+### 3.4.1 Récupération après la perte de mots de passe sur un routeur
+1 Notez la valeur du registre avec la commande suivante 
+
     Router> show version
-2. Redémarrez le routeur. Lors du démarrage du routeur, il faut appuyer sur les touches Ctrl + Pause pour
+    
+2 Redémarrez le routeur. Lors du démarrage du routeur, il faut appuyer sur les touches Ctrl + Pause pour
 passer en mode ROM Monitor.
-3. Entrez les commandes suivantes à fin de ne pas charger le fichier de configuration au démarrage du routeur.
+
+3 Entrez les commandes suivantes à fin de ne pas charger le fichier de configuration au démarrage du routeur.
+
     rommon> confreg 0x2142
     rommon> reset
-4. Entrez les commandes suivantes pour réinitialiser un nouveau mot de passe et la valeur initiale du registre.
+    
+4 Entrez les commandes suivantes pour réinitialiser un nouveau mot de passe et la valeur initiale du registre.
+
     Router> enable
     Router# copy startup-config running-config
     Router# configure terminal
@@ -596,8 +655,10 @@ passer en mode ROM Monitor.
     Router(config)# end
     Router# copy running-config startup-config
     Router# reload
+    
 ### 3.4.2 Récupération d'IOS sur un routeur
 Lors du démarrage du routeur, il faut appuyer sur les touches Ctrl + Pause pour passer en mode rommon.
+
     rommon> IP_ADDRESS=ip-address
     rommon> IP_SUBNET_MASK=mask
     rommon> DEFAULT_GATEWAY=ip-address
@@ -605,17 +666,22 @@ Lors du démarrage du routeur, il faut appuyer sur les touches Ctrl + Pause pour
     rommon> TFTP_FILE=file_name
     rommon> tftpdnld
     rommon> reset
+    
 ### 3.4.3 Récupération après la perte de mots de passe sur un commutateur
-Pour récupérer le mot de passe sur un commutateur Cisco 2960, procédez comme suit :
-1. Connectez un terminal ou un PC au port de la console du commutateur (9 600 bauds).
-2. Redémarrez le commutateur, puis appuyez sur le bouton Mode pendant les 15 secondes. Relâchez ensuite
-le bouton Mode.
-3. Entrez les commandes suivantes :
+Pour récupérer le mot de passe sur un commutateur Cisco 2960, procédez comme suit :  
+
+1 Connectez un terminal ou un PC au port de la console du commutateur (9 600 bauds).  
+2 Redémarrez le commutateur, puis appuyez sur le bouton Mode pendant les 15 secondes. Relâchez ensuite
+le bouton Mode.  
+3  Entrez les commandes suivantes :
+
     switch: flash_init
     switch: load_helper
     switch: rename flash:config.text flash:config.text.old
     switch: boot
-4. Entrez les commandes suivantes :
+    
+4 Entrez les commandes suivantes :
+
     Switch> enable
     Switch# rename flash:config.text.old flash:config.text
     Switch# copy flash:config.text system:running-config
@@ -623,53 +689,71 @@ le bouton Mode.
     Switch(config)# enable secret password
     Switch# copy running-config startup-config
     Switch# reload
-### 3.4.4 Récupération d'IOS sur un commutateur
-1. Connectez un pc au port console du commutateur, utilisez un logiciel tel que HyperTerminal ou TeraTerm.
-2. Entrez les commandes suivantes 
+    
+### 3.4.4 Récupération d'IOS sur un commutateur  
+1 Connectez un pc au port console du commutateur, utilisez un logiciel tel que HyperTerminal ou TeraTerm.  
+2 Entrez les commandes suivantes 
+
     switch:
     switch: set BAUD 115200
     switch: copy xmodem: flash:/ios.bin
+    
 ou
+
     switch: xmodem [-cyr] [ios.bin ]
-3. Configurez le logiciel pour une vitesse de ligne de 115200 bauds.
-4. Le commutateur se met en attente ; il est prêt à recevoir l'IOS par xmodem.
-5. Cherchez le chier avec le menu du logiciel et envoyez-le par Xmodem.
-6. Redémarrez 
+    
+3  Configurez le logiciel pour une vitesse de ligne de 115200 bauds.  
+4 Le commutateur se met en attente ; il est prêt à recevoir l'IOS par xmodem.  
+5 Cherchez le fichier avec le menu du logiciel et envoyez-le par Xmodem.  
+6 Redémarrez  
+
     switch: reset
-7. Après redémarrage, recon gurez la vitesse de la ligne de console en 9600 bauds 
+    
+7 Après redémarrage, recon gurez la vitesse de la ligne de console en 9600 bauds.  
+
     Switch(config)# line console 0
     Switch(config-line)# speed 9600
 
 ## 3.5 Liste de Contrôle d'Accès ACL
 ### 3.5.1 ACL standard
-Configuration d'une ACL standard :
+Configuration d'une ACL standard 
+
     Router(config)# access-list access-list-number {permit | deny | remark remark } source [source-wildcard ] [log]
     Router(config)# no access-list acces-list-number
     Router(config-if)# ip access-group {access-list-number | access-list-name } {in | out}
     Router# show access-lists [acces-list-number | NAME ]
-Configuration d'une ACL standard nommée     
+    
+Configuration d'une ACL standard nommée  
+
     Router(config)# ip access-list standard NAME
     Router(config-std-nacl)# sequence-number [permit | deny | remark] source [source-wildcard ] [log]
     Router(config-if)# ip access-group access-list-name {in | out}
     Router# show access-lists [NAME ]
+    
 Utilisation d'une ACL pour contrôler l'accès aux lignes virtuelles VTY :
+
     Router(config)# access-list access-list-number {deny | permit} source [source-wildcard ]
     Router(config)# line vty 0 4
     Router(config-line)# access-class access-list-number in [vrf-also] | out
 
 ### 3.5.2 ACL étendue
 Configuration d'une ACL étendue 
+
     Router(config)# access-list access-list-number {permit | deny | remark} protocol source [source-wildcard ] [operator operand ] [port port-number or name ] destination [destination-wildcard [operator operand ] [port port-number or name ] [established]
     Router(config)# access-list access-list-number {permit | deny} protocol source source-wildcard destination destination-wildcard {eq | neq | gt | lt | range} protocol-number [established]
     Router(config-if)# ip access-group {access-list-number | access-list-name }{in | out}
     Router# show access-lists [acces-list-number | NAME ]
+    
 Configuration d'une ACL étendue nommée 
+
     Router(config)# ip access-list extended NAME
     Router(config-ext-nacl)# sequence-number [permit | deny | remark] protocol source [source-wildcard ] destination [destination-wildcard ] {eq | neq | gt | lt | range} protocol-number [established]
     Router(config-if)# ip access-group access-list-name {in | out}
     Router# show access-lists [NAME ]
+    
 ### 3.5.3 ACL dynamique
 Exemple de configuration d'une ACL dynamique 
+
     Router(config)# username name password password
     Router(config)# access-list access-list-number dynamic dynamic-name [timeout minutes ] permit telnet source source-wildcard destination destination-wildcard
     Router(config-if)# ip access-group access-list-number in
@@ -683,20 +767,26 @@ Exemple de configuration d'une ACL réflexive
     Router(config-ext-nacl)# evaluate reflect-NAME
     Router(config-if)# ip access-group IN-NAME in
     Router(config-if)# ip access-group OUT-NAME out
+    
 ### 3.5.5 ACL basée sur le temps
 Exemple de configuration d'une ACL basée sur le temps 
+
     Router(config)# time-range NAME
     Router(config-time-range)# periodic DAYS hh:mm to hh:mm
     Router(config)# access-list ACL-number permit protocol source source-wildcard destination destination-wildcard {eq | neq | gt | lt | range} protocol-number time-range NAME
     Router(config-if)# ip access-group ACL-number {in | out}
+    
 ## 3.6 Réseaux privés virtuels VPN
 Configuration d'un VPN entre deux sites distants, à con gurer sur les routeurs de chaque site
+
     Router(config)# interface tunnel 0
     Router(config-if)# ip unnumbered local-interface
     Router(config-if)# tunnel source wan-source-interface
     Router(config-if)# tunnel destination wan-destination-interface
     Router(config)# ip route ip-address mask tunnel 0
+    
 Configuration d'un VPN entre un site et un client 
+
     Router(config)# username name password password
     Router(config)# vpdn enable
     Router(config-vpdn)# accept-dialin
@@ -710,6 +800,7 @@ Configuration d'un VPN entre un site et un client
 
 ## 3.7 Services d'adressage IP
 ### 3.7.1 Protocole DHCP
+
     Configuration d'un serveur DHCP 
     Router(config)# service dhcp
     Router(config)# ip dhcp excluded-address low-address [high-address ]
@@ -720,24 +811,34 @@ Configuration d'un VPN entre un site et un client
     Router(dhcp-config)# domain-name domain
     Router(dhcp-config)# lease {days [hours ] [minutes ] | infinite }
     Router(dhcp-config)# netbios-name-server address [address2 ...address8 ]
+    
 Configuration d'un relais DHCP :
+
     Router(config-if)# ip helper-address server-address
+    
 Visualisation et dépannage de DHCP :
+
     Router# show ip dhcp binding
     Router# show ip dhcp server statistics
     Router# show ip dhcp server pool
     Router# show ip dhcp conflict
     Router# debug ip dhcp server events
+    
 ### 3.7.2 Evolutivité des réseaux avec NAT
-Configuration de la NAT statique :
+Configuration de la NAT statique 
+
     Router(config)# ip nat inside source static local-ip global-ip
     Router(config)# interface type number
     Router(config-if)# ip nat inside
     Router(config)# interface type number
     Router(config-if)# ip nat outside
-Configuration de la redirection de port :
+    
+Configuration de la redirection de port 
+
     Router(config)# ip nat inside source static protocol local-ip port global-ip port
-Configuration de la NAT dynamique :
+    
+Configuration de la NAT dynamique 
+
     Router(config)# ip nat pool NAME start-ip end-ip {netmask netmask | prefix-length }
     Router(config)# access-list access-list-number permit source [source-wildcard ]
     Router(config)# ip nat inside source list access-list-number pool NAME
@@ -745,7 +846,9 @@ Configuration de la NAT dynamique :
     Router(config-if)# ip nat inside
     Router(config)# interface type number
     Router(config-if)# ip nat outside
-Configuration de la surcharge NAT première configuration possible :
+    
+Configuration de la surcharge NAT première configuration possible 
+
     Router(config)# access-list access-list-number permit source [source-wildcard ]
     Router(config)# ip nat inside source list access-list-number interface interfaceoverload
     Router(config)# interface type number
@@ -760,7 +863,9 @@ Configuration de la surcharge NAT première configuration possible :
     Router(config-if)# ip nat inside
     Router(config)# interface type number
     Router(config-if)# ip nat outside
-Visualisation et dépannage de NAT :
+    
+Visualisation et dépannage de NAT 
+
     Router# show ip nat translations [verbose]
     Router# show ip nat statistics
     Router(config)# ip nat translation timeout timeout-seconds
@@ -768,17 +873,23 @@ Visualisation et dépannage de NAT :
     Router# clear ip nat translation inside global-ip local-ip [outside local-ip global-ip ]
     Router# clear ip nat translation protocol inside global-ip global-port local-ip local-port [outside local-ip local-port global-ip global-port ]
     Router# debug ip nat [detailed]
-3.8 Adressage IPv6
-Configuration de IPv6 :
+    
+## 3.8 Adressage IPv6
+Configuration de IPv6 
+
     RouterX(config)# ipv6 unicast-routing
     RouterX(config-if)# ipv6 address ipv6-address /prefix-length [eui-64]
     RouterX(config)# ipv6 host name [port ] ipv6addr [ipv6addr ...]
     RouterX(config)# ip name-server address
+    
 Configuration de RIPng :
+
     RouterX(config)# ipv6 unicast-routing
     RouterX(config)# ipv6 router rip name
     RouterX(config-if)# ipv6 rip name enable
+    
 Visualisation et dépannage d'IPv6 :
+
     RouterX# show ipv6 interface
     RouterX# show ipv6 interface brief
     RouterX# show ipv6 neighbors
