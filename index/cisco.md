@@ -48,7 +48,7 @@ _____________
 >>
 > >  **ro**uter **rip** : Entrer sur l'interface de routage RIP.  
 > >  >  
-> >  >  **v**ersion **2** : par défaut la V1 est utilisée (qui utilise le [mécanisme des classes](réseau/ipv4))  
+> >  >  **v**ersion **2** : par défaut la V1 est utilisée (qui utilise le [mécanisme des classes](ipv4.md))  
 > >  >    
 > >  >  **no au**to-summary : Empêche l'agrégation des routes (et utiliser des adresses classless)  
 > >  >    
