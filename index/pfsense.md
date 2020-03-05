@@ -41,5 +41,5 @@ La DMZ peut aussi être entre deux pare-feux.
 Il faudrait -idéalement- aussi activer les antivirus/pare-feu et ne faire confiance à personne (concept zero-trust), car il est tout à fait possible d'infecter à partir d'un PC du réseau (voir à partir d'un sniffer...).  
 
 De la même manière que la plupart des OS, il se configure à coup de Suivant/Suivant.
-pfSesne à une tendance à refuser les modification post-configuration initiale, il faut donc penser son réseau avant d'installer l'UTM. Il s'administre via un serveur web, ce qui est très pratique (et donc installer Firefox sur les seveurs pour l'administrer...) 
+pfSesne à une tendance à refuser les modification post-configuration initiale, il faut donc penser son réseau avant d'installer l'UTM. Il s'administre via un serveur web, ce qui est très pratique (et donc installer Firefox sur les seveurs pour l'administrer...)   
 Il a surtout un avantage : des plug-ins par milliards.
