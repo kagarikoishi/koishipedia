@@ -27,10 +27,10 @@ Une DMZ doit aussi permettre de mettre des serveurs qui sont généralement à p
      SRV-A   SRV-B   Pare-feu                 Pare-feu de sorie du LAN
        |-------|-------[FW1]------------|----------------[FW2]----------[Routeur NAT/PAT*]---> Sortie WAN 1
       DHCP           TCP 1433           |          TCP 443 et 48653 (ex)            |            (VDSL)
-      PCs                ||   Proxy <---|--> Serveurs de gestion                    |
-               (qui filtre aussi le          et relations commerciale (CRM)         v
-                flux sortant                 Utilise le port SQL : le TCP 1433     WAN 2 
-                         ||                                 ||                     (4G)
+      PCs                ||   Proxy <---|-->   Serveurs de gestion                  |
+                      (qui filtre aussi le     et relations commerciale (CRM)       v
+                       flux sortant)           Utilise le port SQL : TCP 1433     WAN 2 
+                         ||                                 ||                    (4G)
           DMZ 2          ||             DMZ 1               || 
     =======================================================================================================
     *Idéalement un routeur capable de SD-WAN pour assurer une tolérance de panne.
@@ -40,3 +40,6 @@ Une DMZ doit aussi permettre de mettre des serveurs qui sont généralement à p
 La DMZ peut aussi être entre deux pare-feux.  
 Il faudrait -idéalement- aussi activer les antivirus/pare-feu et ne faire confiance à personne (concept zero-trust), car il est tout à fait possible d'infecter à partir d'un PC du réseau (voir à partir d'un sniffer...).  
 
+De la même manière que la plupart des OS, il se configure à coup de Suivant/Suivant.
+pfSesne à une tendance à refuser les modification post-configuration initiale, il faut donc penser son réseau avant d'installer l'UTM. Il s'administre via un serveur web, ce qui est très pratique (et donc installer Firefox sur les seveurs pour l'administrer...) 
+Il a surtout un avantage : des plug-ins par milliards.
