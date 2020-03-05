@@ -12,6 +12,9 @@ Pfsense est un UTM (Unified Threat Management) qui fournit un ensemble de servic
 Basé sur OpenBSD, il fait bien (mais sans plus face à des équipements dédiés), bien qu'il se démarque de ses concurrents par le fait qu'il soit un logiciel libre (contrairement à Kwartz...) et sa popularité (par opposition à Alcasar).
 pfSense commercialise également du matériel dédié.
 
+Rappel : Une DMZ est la séparation entre le "réseau de confiance" et le réseau Internet, qui n'a droit à aucune confiance.
+Une DMZ doit aussi permettre de mettre des serveurs qui sont généralement à part du reste du réseau local et dont certaines informations peuvent passer à travers la DMZ (généralement par une translation d'adresse statique avec l'IP publique sur le port 80 et/ou 443 d'un coté et un port déteminé au ~hasard de l'autre.
+
    
      SRV-A   SRV-B   Pare-feu 
        |-------|-------[DMZ]----> Sortie
@@ -20,9 +23,6 @@ pfSense commercialise également du matériel dédié.
                                          - IIS
 
 *Fig. 1 : Schéma d'architecture réseau que l'on voit en pratique*  
-
-Rappel : Une DMZ est la séparation entre le "réseau de confiance" et le réseau Internet, qui n'a droit à aucune confiance.
-Une DMZ doit aussi permettre de mettre des serveurs qui sont généralement à part du reste du réseau local et dont certaines informations peuvent passer à travers la DMZ (généralement par une translation d'adresse statique avec l'IP publique sur le port 80 et/ou 443 d'un coté et un port déteminé au ~hasard de l'autre.
 
      SRV-A   SRV-B   Pare-feu                 Pare-feu de sorie du LAN
        |-------|-------[FW1]------------|----------------[FW2]----------[Routeur NAT/PAT*]---> Sortie WAN 1
