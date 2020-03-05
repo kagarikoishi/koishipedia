@@ -32,7 +32,7 @@ Une DMZ doit aussi permettre de mettre des serveurs qui sont généralement à p
                 flux sortant                 Utilise le port SQL : le TCP 1433     WAN 2 
                          ||                                 ||                     (4G)
           DMZ 2          ||             DMZ 1               || 
-    ========================================================================================================    
+    =======================================================================================================
     *Idéalement un routeur capable de SD-WAN pour assurer une tolérance de panne.
   
 *Fig.2 : Schéma d'architecture réseau qui devrait être idéalement appliqué*  
