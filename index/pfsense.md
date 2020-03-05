@@ -27,12 +27,16 @@ Une DMZ doit aussi permettre de mettre des serveurs qui sont généralement à p
      SRV-A   SRV-B   Pare-feu                 Pare-feu de sorie du LAN
        |-------|-------[FW1]------------|----------------[FW2]----------[Routeur NAT/PAT*]---> Sortie WAN 1
       DHCP           TCP 1433           |          TCP 443 et 48653 (ex)            |            (VDSL)
-      PCs                     Proxy <---|--> Serveurs de gestion                    |
-                                             et relations commerciale (CRM)         v
-                                             Utilise le port SQL : le TCP 1433     WAN 2 
-                                                                                   (4G)
+      PCs                ||   Proxy <---|--> Serveurs de gestion                    |
+               (qui filtre aussi le          et relations commerciale (CRM)         v
+                flux sortant                 Utilise le port SQL : le TCP 1433     WAN 2 
+                         ||                                 ||                     (4G)
+          DMZ 2          ||             DMZ 1               || 
+    ========================================================================================================    
     *Idéalement un routeur capable de SD-WAN pour assurer une tolérance de panne.
   
 *Fig.2 : Schéma d'architecture réseau qui devrait être idéalement appliqué*  
 
-La DMZ peut aussi être entre deux pare-feu
+La DMZ peut aussi être entre deux pare-feux.  
+Il faudrait -idéalement- aussi activer les antivirus/pare-feu et ne faire confiance à personne (concept zero-trust), car il est tout à fait possible d'infecter à partir d'un PC du réseau (voir à partir d'un sniffer...).  
+
