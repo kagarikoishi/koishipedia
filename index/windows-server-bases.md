@@ -6,7 +6,7 @@ Malgré ce défaut qui le rend particulièrement inintéressant, il est possible
 
 * [Active Directory (lien récursif)](active-directory-bases)
 * Seveur DNS et DHCP (ne mérite pas de page supplémentaire)
-* [Serveur de déploiement](microsoft-deployment-services)(Microsoft Deployment Service)
+* [Serveur de déploiement](microsoft-deployment-services) (Microsoft Deployment Service)
 * Serveur HTTP Intranet (Microsoft IIS)
 * Powershell (aka. Comment trouver des scripts pour automatiser la création de nouveaux utilisateurs -- et la désactiver pour ne pas perdre son emploi).
 * Gestion de certificats.
