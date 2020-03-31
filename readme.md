@@ -40,7 +40,3 @@ _________________
 
 <br>
 Tâches à faire [\*](index/taches.md) 
-___________
-
-* Trouver un stage [liste](index/taches/entreprises.md)
-* Refaire tous les TP de tous les cours.
