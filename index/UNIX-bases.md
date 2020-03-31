@@ -11,14 +11,18 @@
   * rm -I : demande une confirmation pour supprimer qu'une fois dès qu'il y'a plus que trois fichiers.
   * (sudo) rm -rf /\* : Massacrer toute la population qui a trouvé refuge dans votre PC. Au NAPALM.
 * mkdir : Créer un dossier.
-* touch : Tel Dieu, vous créez quelque chose (un fichier, faut pas déconner, vous n'avez pas assez de compétence pour créer une bimbo).
+* touch : Tel Dieu, vous créez quelque chose (un fichier, faut pas déconner, vous n'avez pas assez de compétences pour créer une bimbo).
 * echo : Imprimer un message sur un écran. 
 
-### Et celles qui sont exclusives au monde *nix. 
-En gros, tout le reste.
+### Et celles qui sont exclusives au monde \*nix. 
+En gros, tout le reste. Si vous avez la malchance d'avoir touché au PATH, il suffit (la plupart du temps de mettre /usr/bin/ devant).
+
 * man : invoque le **Manuel Unix** (tm).
 * --help (-h ne correspond pas forcément à help) Liste des commutateurs qui existent sur une commande.
+#### Mise à jour.
 * apt/yum/aur/aptitude/snap : Gestionnaire de logiciel (software repository de $DISTRIBUTION. Attention, APT n'a pas les pouvoirs de super-vache !
-* *apt-get* update : mise à jour du gest. de log. favori.
-* *apt-get* upgrade : mise à jour des paquets de votre \*nix.
-* *apt-get* install *logiciel* : Installer un logiciel.
+  * *apt-get* update : mise à jour du gest. de log. favori.
+  * *apt-get* upgrade : mise à jour des paquets de votre \*nix.
+  * *apt-get* install *logiciel* : Installer un logiciel.
+  * *apt-get* autoremove : supprime les paquets inutiles.
+#### Réseau.
