@@ -4,7 +4,7 @@
   * cd .. Revenir au dossier précédent
   * cd ../.. Revenir à un dossier encore en arrière
 * ls (dir dans l'univers Microsoft) : lister le contenu d'un dossier. Pour les commutateurs à utiliser, lire le manuel.
-* cat : miaou (lit le contenu d'un fichier texte, comme less).
+* *cat : miaou (lit le contenu d'un fichier texte, comme less). Unix uniquement*.
 * rm (et rmdir/del chez M$) : supprime un contenu.
   * rm -r : permet la suppression si le dossier n'est pas vide.
   * rm -i : demande une confirmation pour supprimer CHAQUE fichier.
@@ -13,6 +13,7 @@
 * mkdir : Créer un dossier.
 * touch : Tel Dieu, vous créez quelque chose (un fichier, faut pas déconner, vous n'avez pas assez de compétences pour créer une bimbo).
 * echo : Imprimer un message sur un écran. 
+* more : Permet de faire défiler le texte lentement, **lurk moar**.
 
 ### Et celles qui sont exclusives au monde \*nix. 
 En gros, tout le reste. Si vous avez la malchance d'avoir touché au PATH, il suffit (la plupart du temps de mettre /usr/bin/ devant).
