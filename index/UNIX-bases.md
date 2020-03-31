@@ -36,6 +36,6 @@ En gros, tout le reste. Si vous avez la malchance d'avoir touché au PATH, il su
 		* ip link show *eth0* : Montre l'adresse MAC d'une carte réseau (utile pour (pfSense)[pfsense.md]).
 		* ip link set dev *eth0* down/up : éteint ou allume une carte réseau.
 		* ip link set dev *eth0* address *AA:BB:CC:DD:EE:FF* : changer l'adresse MAC d'une carte réseau, pas besoin d'une application pour ça contrairement à Windows ! 
-	* ip n(eigh) : *neighbour == voisin* Table ARP.
+	* ip n(eigh) : table ARP (*neighbour == voisin*).
 	* *~ à suivre.
 	
