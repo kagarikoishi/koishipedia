@@ -20,7 +20,7 @@ En gros, tout le reste. Si vous avez la malchance d'avoir touché au PATH, il su
 * man : invoque le **Manuel Unix** (tm).
 * --help (-h ne correspond pas forcément à help) Liste des commutateurs qui existent sur une commande.
 #### Mise à jour.
-* apt/yum/aur/aptitude/snap : Gestionnaire de logiciel (software repository de $DISTRIBUTION. Attention, APT n'a pas les pouvoirs de super-vache !
+* apt/yum/aur/aptitude/snap : Gestionnaire de logiciel (software repository de $TonLinux). Attention, APT n'a pas les pouvoirs de super-vache !
   * *apt-get* update : mise à jour du gest. de log. favori.
   * *apt-get* upgrade : mise à jour des paquets de votre \*nix.
   * *apt-get* install *logiciel* : Installer un logiciel.
