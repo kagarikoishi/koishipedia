@@ -26,3 +26,9 @@ En gros, tout le reste. Si vous avez la malchance d'avoir touché au PATH, il su
   * *apt-get* install *logiciel* : Installer un logiciel.
   * *apt-get* autoremove : supprime les paquets inutiles.
 #### Réseau.
+* ip : remplace **ifconfig** et les autres **net-tools** (arp...) de Linux depuis quelques années. Il est similaire à ce que l'on retrouve chez (Cisco)[cisco.md]. 
+	* ip a(ddress) : Affiche toutes les cartes réseau du PC.
+	* ip r(oute) : Affiche la table de routage
+	* ip route add 172.16.0.0/16 via 172.31.255.254 : Ajouter une route via **une** passerelle
+	* ip route add 172.16.0.0/16 dev eth0 : Ajouter une route par le biais d'une carte réseau (**dev**ice).
+	* ip route del 172.16.0.0/16 dev eth0 : supprimer une route (idem à add).
