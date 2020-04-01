@@ -4,7 +4,7 @@ Malgré ce défaut qui le rend particulièrement inintéressant, il est possible
 
 ### Les conneries 
 
-* [Active Directory (lien récursif)](active-directory-bases)
+* [Active Directory (lien récursif)](active-directory-bases.md)
 * Seveur DNS et DHCP (ne mérite pas de page supplémentaire)
 * [Serveur de déploiement](microsoft-deployment-services) (Microsoft Deployment Service)
 * Serveur HTTP Intranet (Microsoft IIS)
