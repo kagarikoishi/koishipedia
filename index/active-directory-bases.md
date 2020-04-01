@@ -41,7 +41,7 @@ Active Directory existe en plusieurs déclinaisons, qui permettent d'avoir des r
 Active Directory est fourni avec un DNS qui se sépare en deux parties : "mondomaine.local" et "\_msdcs" qui est endémique à AD et où s'installe le contenu nécessaire pour communiquer en tant que contrôleur de domaine.  Le DNS AD ne contient pas par défaut de zone de résolution inverse et est embarqué (comme presque tout le reste) dans C:\WINDOWS\NTDS.dit
 
 ## Les rôles FSMO.
-*Commande qui montre qui a le rôle FSMO sur un domaine AD *
+*Commande qui montre qui a le rôle FSMO sur un domaine AD*
  
     netdom query FSMO
     
