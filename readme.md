@@ -22,7 +22,7 @@ _____________________
    
 * [Windows Server](index/windows-server-bases.md)  
 
-* [Le Langage C - Le long tutoriel](index/tutoC.md)  
+* [Apprendre Active Directory en 17 secondes](index/tutoAD.md)  
   
 * [Les bonnes pratiques](index/pratiques.md)  
 
