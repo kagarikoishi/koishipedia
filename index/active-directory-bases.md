@@ -52,3 +52,10 @@ Ce sont ceux-ci :
 * Maître d’infrastructure :
 * Émulateur PDC :
 * La gestion des maîtres d’opération :
+
+## Les Group Policies (GPO) et gestion d'utilisateurs sous AD : 
+*similaires à ce que l'on retrouve sur gpedit.msc*
+CMD, runas admin
+> redirusr "OU=GRETA,DC=TARS,DC=priv" : redirige les utilisateurs crées postérieurement dans l'OU GRETA de son AD sans avoir a utiliser la console MMC *Utilisateurs et Ordinateurs AD*.
+> redircmp "OU=GRETA,DC=TARS,DC=priv" : idem, pour un ordinateur. 
+Le but de ces deux commandes est d'éviter la création de nouvaux Users/computers dans les OU par défaut d'ActiveDirectory.
