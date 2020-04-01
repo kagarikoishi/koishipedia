@@ -1,5 +1,5 @@
 # Les bases d'Active Directory
-____________________________   
+
 Un article de Koishipédia   
 
 Cet article est une partie à propos du fonctionnement de [Windows Server](windows-server-bases).   
@@ -14,9 +14,8 @@ Sommaire :
 5. La gestion des groupes utilisateurs (GSG)
 6. La gestion des politiques d'utilisation (GPO)
 
-## Présentation
-___________________
-  
+## Présentation
+
 Active Directory est l'annuaire crée par Microsoft qui correspond au standard LDAP x500.  
 
 L'Active Directory permet de créer un domaine, des groupes de sécurité (GSG) et ainsi de gérer un parc informatique de taille considérable.   
@@ -30,18 +29,18 @@ Active Directory a un certain nombre de composants que l'on retrouve dans sa ver
 * Enfin nous avons les non moins importantes GPO, qui sont présentes dans toutes les versions de Windows (via gpedit.msc) et permettent de restreindre l'utilisateur de l'ordinateur.
 
 ## Les annuaires d'Active Directory
-_________________
   
 Active Directory existe en plusieurs déclinaisons, qui permettent d'avoir des rôles spécialisés :
 
-***** Ebauche à combler *****
+> * Ebauche à combler *
 
 ## Le rôle DNS d'Active Directory
-____________________
+
   
 Active Directory est fourni avec un DNS qui se sépare en deux parties : "mondomaine.local" et "\_msdcs" qui est endémique à AD et où s'installe le contenu nécessaire pour communiquer en tant que contrôleur de domaine.  Le DNS AD ne contient pas par défaut de zone de résolution inverse et est embarqué (comme presque tout le reste) dans C:\WINDOWS\NTDS.dit
 
 ## Les rôles FSMO.
+
  * Commande qui montre qui a le rôle FSMO sur un domaine AD *
     netdom query FSMO
 Dits maîtres d'opérations, ils permettent de désigner un contôleur de domaine AD qui devient maître d'un secteur en particulier (tous les rôles ne peuvent pas être répliqués sans maître).  
