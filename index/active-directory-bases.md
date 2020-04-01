@@ -22,6 +22,7 @@ L'Active Directory permet de créer un domaine, des groupes de sécurité (GSG) 
   
 Il s'agit très certainement du dispositif Microsoft le plus fiable qui soit, ce qui est crucial du fait de son rôle.   
 Active Directory a un certain nombre de composants que l'on retrouve dans sa version la plus répandue, l'AD-DS (Active Directory - Domain Controller), qui contient :
+
 * Un serveur DNS (qui ne doit pas être installé préalablement à AD) et qui contient des pointeurs spécifiques à AD (SRV par exemple).  
 * Un service Kerberos qui est une pseudo-infrastructure à clé publique (PKI) ayant pour but de sécuriser la communication.  
 * Les rôles FSMO (dits *maîtres d'opérations*) qui sont là pour attribuer un maître à des rôles (Windows Server) qui en nécessitent (Active Directory étant capable de se répliquer et d'être piloté par n'importe lequel des contrôleurs de domaine AD).
@@ -32,7 +33,7 @@ Active Directory a un certain nombre de composants que l'on retrouve dans sa ver
   
 Active Directory existe en plusieurs déclinaisons, qui permettent d'avoir des rôles spécialisés :
 
-> * Ebauche à combler *
+> *Ebauche à combler*
 
 ## Le rôle DNS d'Active Directory
 
@@ -40,9 +41,10 @@ Active Directory existe en plusieurs déclinaisons, qui permettent d'avoir des r
 Active Directory est fourni avec un DNS qui se sépare en deux parties : "mondomaine.local" et "\_msdcs" qui est endémique à AD et où s'installe le contenu nécessaire pour communiquer en tant que contrôleur de domaine.  Le DNS AD ne contient pas par défaut de zone de résolution inverse et est embarqué (comme presque tout le reste) dans C:\WINDOWS\NTDS.dit
 
 ## Les rôles FSMO.
-
- * Commande qui montre qui a le rôle FSMO sur un domaine AD *
+*Commande qui montre qui a le rôle FSMO sur un domaine AD *
+ 
     netdom query FSMO
+    
 Dits maîtres d'opérations, ils permettent de désigner un contôleur de domaine AD qui devient maître d'un secteur en particulier (tous les rôles ne peuvent pas être répliqués sans maître).  
 
 Ce sont ceux-ci : 
