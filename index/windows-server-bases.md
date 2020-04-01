@@ -20,3 +20,4 @@ C'est assez simple et peu utile.
 * Sans oublier [les bonnes pratiques](pratiques).
 
 _________________
+
