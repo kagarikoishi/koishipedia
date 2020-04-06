@@ -57,6 +57,7 @@ En gros, tout le reste. Si vous avez la malchance d'avoir touché au PATH (avoir
 * chmod : Permet de modifier les ***ACL*** (Access-List Control) et aussi rendre exécutable un script `chmod +x bash.sh`.
 	* chmod +/-/= r/w/x/X/s/t
 	* chmod +X ; permission d'exécution spéciale. 
+	* chmod est utilisable plus rapidement avec des chiffres qui désignent un groupe : le premier est le propriétaire, le second le groupe dudit utilisateur et le dernier les autres. Ces nombres sont en base octale ]0;7\[
 		> chmod est : read = 4, write = 2, execution = 1,  ce qui fait :
 		> chmod 764 = l'utilisateur aura tous les droits, le groupe pourra lire et écrire et les autres utilisateurs auront seulement le droit de lecture.
 	
