@@ -3,7 +3,7 @@
 * cd : change directory
   * cd .. Revenir au dossier précédent
   * cd ../.. Revenir à un dossier encore en arrière
-* ls (dir dans l'univers Microsoft) : lister le contenu d'un dossier. Pour les commutateurs à utiliser, lire le manuel.
+* ls (dir dans l'univers Microsoft) : lister le contenu d'un dossier. Pour les commutateurs à utiliser, lire le manuel. **namei liste seulement les noms**
 * *cat : miaou (lit le contenu d'un fichier texte, comme less). Unix uniquement*.
 * cp : copier.
 * mv : déplacer un fichier / renommer un fichier (`mv fichier texte.txt` changera le nom de fichier en texte.txt).
@@ -61,5 +61,5 @@ En gros, tout le reste. Si vous avez la malchance d'avoir touché au PATH (avoir
 #### Création d'une variable.
 * `export PATH=${PATH}:/chemin/du/fichier:un/autre/fichier` : Ajoute des chemins à ajouter dans la variable $PATH. Chaque chemin doit être séparé par : 
 * alias '*update*'='sudo apt-get update' : crée un alias pour une commande. A noter que cela ne marche que dans le teminal courant tant que ce n'est pas enregistré dans ~/.bashrc (comme les modifications de la variable $PATH).
-
+#### D'autres commandes.
 	
