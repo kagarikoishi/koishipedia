@@ -55,6 +55,10 @@ En gros, tout le reste. Si vous avez la malchance d'avoir touché au PATH (avoir
 * w3m / lynx : navigateurs web en mode texte (utiles le jour où le serveur graphique du PC plante...
 #### Exécution et scripts
 * chmod : Permet de modifier les ***ACL*** (Access-List Control) et aussi rendre exécutable un script `chmod +x bash.sh`.
+	* chmod +X ; permission d'éxecution spéciale. 
+	> chmod est : read = 4, write = 2, execution = 1,  ce qui fait :
+	> chmod 764 = l'utilisateur aura tous les droits, le groupe pourra lire et écrire et les autres utilisateurs auront seulement le droit de lecture.
+	
 * ./*script.sh* ou bash *script.sh* : Permet de lancer un script.
 * nano/vi/emacs *script.sh* : Rédiger dans le fichier via son éditeur de texte favori.
 * `#!/bin/bash` : She-bang. Tous les scripts bash doivent commencer par cela.
