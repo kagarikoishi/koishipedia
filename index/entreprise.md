@@ -1,7 +1,7 @@
 # Comment repérer une entreprise foireuse ou non
 * 1 . Regarder l'intégrité, savoir-faire technique de l'entreprise (CA de l'entreprise, retours, réputation, certifications).
 * 2 . Faire un audit de conformité (uniquement grosses entreprises/projets) auxquelles l'entreprise ciblée est obligée de se conformer.
-* 3 . (SLA)[https://fr.wikipedia.org/wiki/Service-level_agreement] et engagements sur contrat, lire les clauses en taille 6 pour être sur de ce que l'on fait et on risque (tout le monde se positionne au-delà de 99,9%...). On râle quand ça marche pas et on n'en parle pas quand ça marche.
+* 3 . [SLA](https://fr.wikipedia.org/wiki/Service-level_agreement) et engagements sur contrat, lire les clauses en taille 6 pour être sur de ce que l'on fait et on risque (tout le monde se positionne au-delà de 99,9%...). On râle quand ça marche pas et on n'en parle pas quand ça marche.
 * 4 . Demander des rapports sur performance (grosse boîte).
 * 5 . Quelle tarification (à l'heure ? Au gigabit ? au clic-droit ?)
 * 6 . Le matériel et les logiciels sont-ils en état ? Existe-il une API ? Existe-il un suivi des évènements automatisé et surtout fiable ? 
