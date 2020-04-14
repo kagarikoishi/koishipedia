@@ -6,7 +6,7 @@
 * 5 . Quelle tarification (à l'heure ? Au gigabit ? au clic-droit ?)
 * 6 . Le matériel et les logiciels sont-ils en état ? Existe-il une API ? Existe-il un suivi des évènements automatisé et surtout fiable ? 
 * 7 . La police de maintenance est-elle respectée? 
-* 8 . L'infrea est-elle scalable ou faut-il faire un milliard des démarches ?
+* 8 . L'infra est-elle scalable ou faut-il faire un milliard des démarches ?
 * 9 . Est-ce une offre qui accepte que l'on aie un cloud hybride (au moins provisoirement ?) Que l'offre corresponde à des exigeances particulières (ex : passer par le NAS du patron pour une chose X) ?
 * 10 . Quelle est la sécurité proposée ? Quelles stratégies (disponiblité, intégrité, confidentialité, ACL ?[c'est éliminatoire si pas d'ACL], logs ?) A qui et comment est accessible le datacenter ? Quelle sécurité en cas de coupure de courant ou réseau ?
 
