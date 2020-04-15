@@ -10,3 +10,6 @@
 9. Est-ce une offre qui accepte que l'on aie un cloud hybride (au moins provisoirement ?) Que l'offre corresponde à des exigeances particulières (ex : passer par le NAS du patron pour une chose X) ?
 10. Quelle est la sécurité proposée ? Quelles stratégies (disponiblité, intégrité, confidentialité, ACL ?[c'est éliminatoire si pas d'ACL], logs ?) A qui et comment est accessible le datacenter ? Quelle sécurité en cas de coupure de courant ou réseau ?
 
+Des sites officiels :
+enisa.eu
+cnil.fr
