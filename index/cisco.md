@@ -98,3 +98,14 @@ Le port est coupé, on peut le réactiver automatiquement après un certain temp
     Switch(config-if)# spanning-tree link-type point-to-point 
     Switch(config-if)# end 
     Switch# clear spanning-tree detected-protocols
+
+# Raccourcis de Cisco IOS (non courants):
+* `Ctrl+K` Efface tous les caractères à partir du curseur.
+* `Ctrl+U ou Ctrl+X` Efface tous les caractères jusqu'au curseur.
+* `Esc+D` Efface le prochain mot à partir du curseur.
+* `Ctrl+W` Efface le mot précédant le curseur.
+* `Esc+B, Esc+F` Déplace le curseur d'un mot à gauche ou à droite.
+* `Ctrl+Maj+6` Interrompt les recherches DNS, ping et traceroute.
+* `Ctrl+R/I/L` Rappelle une ligne interrompue par un message IOS (du genre `GigabitEthernet0/0 is up`).
+* `Espace` dans le cas d'une commande `| more`, permet de changer d'écran.
+
