@@ -88,7 +88,8 @@ Par exemple en coupant le port si on voit passer un paquet bpdu (qui servent au 
     Switch(config-if)# spanning-tree bpduguard # pour le faire par défaut sur tout les port d’accès 
     Switch(config)# spanning-tree portfast default 
     Switch(config)# spanning-tree portfast bpduguard
-Le port est coupé, on peut le réactiver automatiquement après un certain temps 
+Le port est coupé, on peut le réactiver automatiquement après un certain temps
+
     Switch(config)# errdisable recovery cause bpduguard 
     Switch(config)# errdisable recovery interval 400 
     
@@ -98,6 +99,20 @@ Le port est coupé, on peut le réactiver automatiquement après un certain temp
     Switch(config-if)# spanning-tree link-type point-to-point 
     Switch(config-if)# end 
     Switch# clear spanning-tree detected-protocols
+
+### Configuration d'un mot de passe.
+
+    Router(config)#enable secret <password>
+    Router(config)#line console 0 // line vty 0 15
+    Router(config-line)#password <password>
+    Router(config-line)#login
+    
+`login` met en service le mot de passe prédéfini par password.  
+Pour établir le chiffrement du mot de passe (qui ne l'est pas par défaut !)
+
+    Router(config)#service password-encryption
+    
+Le tout apparaît avec un `show running-config`, ne pas oublier de chiffrer les mots de passe car ils apparaissent autrement en clair !    
 
 # Raccourcis de Cisco IOS (non courants):
 * `Ctrl+K` Efface tous les caractères à partir du curseur.
