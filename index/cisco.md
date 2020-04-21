@@ -111,6 +111,8 @@ Le port est coupé, on peut le réactiver automatiquement après un certain temp
 Pour établir le chiffrement du mot de passe (qui ne l'est pas par défaut !)
 
     Router(config)#service password-encryption
+
+Enfin il est possible d'afficher une bannière à la connexion : `banner motd#` motd pour Message Of The Day, pour afficher par exemple des mentions légales.
     
 Le tout apparaît avec un `show running-config`, ne pas oublier de chiffrer les mots de passe car ils apparaissent autrement en clair !    
 
