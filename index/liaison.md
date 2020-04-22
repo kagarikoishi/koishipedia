@@ -1,7 +1,7 @@
 # Les protocoles de liaison
 1.1 : le visage d'une trame de liaison [Wikipédia](https://en.wikipedia.org/wiki/Ethernet_frame)
     
-    Longeur d'une trame Ethernet II : 64 à 1518 octets.
+    Longeur d'une trame Ethernet II : 64 à 1530 octets.
     -----------------------------------------------------------------------------
     | Préambule |SFD | MAC dst | Mac src |802.1Q| EtherType |   Données   | FCS |
     |    7 o    | 1o |   6 o   |   6 o   |  4o  |    2 o    | 46 à 1500 o | 4 o |
@@ -25,3 +25,5 @@
 * FCS : Contrôle de redondance cyclique (CRC) pour l'intégrité de la trame.
 
 Une trame Ethernet II est automatiquement rejetée si elle est plus courte que 64 octets ou plus longue que 1530 octets ou si le CRC est incohérent avec le message.
+
+Le MAC (802.3) permet de prendre en charge les méthode CSMA/CD et CA (Collision Detection et Collison Avoidance pour la wifi), en convertissant les bits en trame, tandis que LLC (802.2) les transfère vers IP et ARP et sert d'intermédiare en tant que contrôleuse de la carte réseau.
