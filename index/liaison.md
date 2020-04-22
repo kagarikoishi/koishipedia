@@ -60,4 +60,10 @@ Les commutateurs à mémoire tampon sont préférables pour des communications e
  
  La plupart des cartes réseau/sw. proposent la négociation automatique et choisissent le protocole le plus performant en fonction du périphérique le plus faible du lien.
  
- Le semi-duplex est un mode où un lien est duplex, mais chacun son tour. Si des ports est en semi-duplex et l'autre pas, cela provoquera de nombreuse
+ Le semi-duplex est un mode où un lien est duplex, mais chacun son tour. Si des ports est en semi-duplex et l'autre pas, cela provoquera de nombreuses collisions.
+ 
+### Auto-MDIX
+Détecte le type de cable connecté qu commutateur. Certaines interfaces réseau n'en sont pas équipées à partir de Cisco IOS 12 entre autres.
+
+### ARP : voir la page [IPv4](IPv4.md)
+
