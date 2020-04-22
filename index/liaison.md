@@ -29,7 +29,7 @@
   * 0x806  = ARP
 * 802.1Q : étiquette VLAN.
 * Données : Des paquets. Doit faire au moins 64 bits (si inférieur MAC ajoutera un bourrage de zéro ou padding pour faire la taille correcte.
-* FCS : Contrôle de redondance cyclique (CRC) pour l'intégrité de la trame.
+* FCS : Contrôle de redondance cyclique (CRC) pour l'intégrité de la trame. la CRC est calculée sur le nombre de bits à 1 de la trame.
 
 Une trame Ethernet II est automatiquement rejetée si elle est plus courte que 64 octets ou plus longue que 1530 octets ou si le CRC est incohérent avec le message.
 
@@ -42,3 +42,22 @@ LLC (802.2) les transfère vers IP et ARP et sert d'intermédiare en tant que co
 ## Les commutateurs (non-L3)
 Ceux-ci traitent les protocoles de niveau 1 et 2 et sont donc constituées d'une table MAC (parfois dite CAM) et non des tables ARP. La table conserve par défaut l'adresse dans sa table 5 minutes.
 Si l'adresse MAC est inconnue à la table MAC du commutateur, il la transfère à tout le monde sauf le port source.
+
+### Commutation Store and Forward
+Ce commutateur reçoit l'intégralité de la trame et calcule le CRC puis l'envoie a bon port si la trame est valide
+### Commutation Cut-through
+Celui-ci ne lit pas la totalité de la trame et s'arrête après avoir lu le destinataire.
+ * Commutation fast-forward : envoie la trame dès que la destination de celui-ci est connue.
+ * Commutation fragment-free : lit les 64 premiers octets de la trame et vérifie l'intégrité de cette partie. C'est un compromis entre le rapide FF et le lent Store et Forward. 
+ Certains commutateurs sont en Cut-Through par défaut et passent en S et F si le seuil d'erreur est supérieur à un seuil défini.
+ 
+ ### Tampons 
+ Soit sur : 
+ * La mémoire tampon est organisée en fonction des ports entrants et sortants. Les trames sont envoyées une par une. Une trame peut retarder la transmission des autres si son port de destination est saturé, même si les autres trames ne vont pas en destination du port saturé.
+ * La mémoire tampon est partagée pour tous les ports. La mémoire est allouée dynamiquement aux ports de destination, et les trames sont liées de manière dynamique, ce qui évite d'avoir une file d'attente entre port entrant et sorant. Le commutateur tient alors une liste, peut supporter de plus grandes trames au détriment de plus petites si la mémoire et saturée.
+ 
+Les commutateurs à mémoire tampon sont préférables pour des communications entres des pots à débits différents (avec x ports en 100 M/s et un en 1 Gb/s).
+ 
+ La plupart des cartes réseau/sw. proposent la négociation automatique et choisissent le protocole le plus performant en fonction du périphérique le plus faible du lien.
+ 
+ Le semi-duplex est un mode où un lien est duplex, mais chacun son tour. Si des ports est en semi-duplex et l'autre pas, cela provoquera de nombreuse
