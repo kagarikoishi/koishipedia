@@ -35,3 +35,9 @@ S'y ajoutent aussi les adresses non-attribuables :
 * 127.0.0.1
 * 0.0.0.0 qui permet d'envoyer vers n'importe qui (fréquent en attribution statique d'une route IP)
 * 255.255.255.255 qui est une adresse du sous-masque et par définition inattribuable. 
+
+## Le protocole ARP (EtherType 0x806)
+
+ARP est une table qui a pour but d'associer une adresse MAC à une adresse IP.   
+Pour ce faire, ARP envoie une demande en broadcast MAC en demandant "who is 192.168.1.1 ?". Le périphérique qui a l'adresse IP demandée répondra qu'il l'a. Tout comme [les tables MAC](liaison.md), les tables ARP sont horodatées.  
+Un périphérique fait une demande ARP pour l'horodatage (2 mn sous Windows), mais aussi quand il doit communiquer avec une adresse IP qui est dans son réseau et non connue de sa table IP.
