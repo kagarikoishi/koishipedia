@@ -19,14 +19,32 @@ Le protocole Internet version 4 est le premier protocole crée pour naviguer sur
 
 ## Fonctionnement d'IPv4
 
+### En-tête et description.
+
     Entête IP : 24 octets (b = bits, o = octet)
     #############################################################################################
     ## Vers | IHL # Svc # LgT # Id. # Etq | PFra # TTL # Pro # CRC # IP. src # IP. dst #  Opt  ##
     ##  4 b | 4 b # 1 o # 2 o # 2 o # 3 b | 13 b # 1 o # 1 o # 2 o #   4 o   #   4 o   #  40 o ##
     #############################################################################################
     Vers : version, IHL : Internet Header Length, Svc : Service, LgT : Longueur Totale, 
-    Id. Identification, Etq : étiquette (flag), PFra : Position Fragment, TTL : Time to Live, Pro : Protocole L4, 
-    CRC : somme de contrôle,
+    Id. Identification, Etq : étiquette (flag), PFra : Position Fragment, TTL : Time to Live, 
+    Pro : Protocole L4, CRC : somme de contrôle,
+
+* Version : ce champ contient une valeur binaire de 4 bits définie sur 0100 indiquant qu'il s'agit d'un paquet IP version 4.
+
+* Services différenciés ou DiffServ (DS) : anciennement appelé champ de type de service, le champ Services différenciés est un champ de 8 bits utilisé pour définir la priorité de chaque paquet. Les six bits de poids fort du champ DiffServ sont représentés par le marquage DSCP (Differentiated Services Code Point) et les deux derniers bits sont des bits ECN (Explicit Congestion Notification).
+
+* les champs Identification, Indicateurs et Décalage du fragment pour garder la trace des fragments. Un routeur peut être amené à fragmenter un paquet pour le transmettre d'un support à un autre, dont la MTU est inférieure. 
+
+* Time-to-live (durée de vie, TTL) : ce champ contient une valeur binaire de 8 bits utilisée pour limiter la durée de vie d'un paquet. L'expéditeur du paquet définit la valeur TTL initiale et celle-ci diminue d'un point chaque fois que le paquet est traité par un routeur. Si la valeur du champ TTL arrive à zéro, le routeur rejette le paquet et envoie un message de dépassement du délai ICMP (Internet Control Message Protocol) à l'adresse IP source.
+
+* Le champ Protocole est utilisé pour identifier le prochain protocole de niveau. Cette valeur binaire de 8 bits indique le type de données utiles transportées par le paquet, ce qui permet à la couche réseau de transmettre les données au protocole de couche supérieure approprié. Les valeurs les plus courantes sont notamment ICMP (1), TCP (6) et UDP (17).
+
+* Adresse IPv4 source : ce champ contient une valeur binaire de 32 bits, qui représente l'adresse IP source du paquet. L'adresse IPv4 source est toujours une adresse de monodiffusion.
+
+* Adresse IPv4 de destination : ce champ contient une valeur binaire de 32 bits qui représente l'adresse IP de destination du paquet. L'adresse IPv4 de destination est une adresse de monodiffusion, de diffusion ou de multidiffusion.
+
+### Description
 
 IPv4 se greffe au-dessus [de la couche liaison](liaison.md) et en adopte des contraintes ; la couche liaison dicte la taille maximale des paquets (MTU), et a pour but et unique fonction de pouvoir transférer un paquet d'une source à une destination.  
 Paradoxalemement c'est probablement le protocole Internet le plus connu (avec [IPv6](ipv6.md)), notamment du fait qu'il est indispensable au fonctionnement des protocoles applicatifs DNS que tout le monde utilise [(DNS permet de lier une adresse IP à un nom et un FQDN](dns.md)) et DHCP qui alloue automatiquement une IP a un poste donné.  
