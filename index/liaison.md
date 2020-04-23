@@ -3,10 +3,10 @@
 ## 1.1 : le visage d'une trame de liaison - MAC ([Wikipédia](https://en.wikipedia.org/wiki/Ethernet_frame))
     
     Longeur d'une trame Ethernet II : 64 à 1530 octets.
-    ********************************************************************************
-    * Préambule * SFD * MAC dst * Mac src * 802.1Q * EtherType *   Données   * FCS *
-    *    7 o    * 1 o *   6 o   *   6 o   *  4 oc  *    2 o    * 46 à 1500 o * 4 o *
-    ********************************************************************************
+    ################################################################################
+    # Préambule # SFD # MAC dst # Mac src # 802.1Q # EtherType #   Données   # FCS #
+    #    7 o    # 1 o #   6 o   #   6 o   #  4 oc  #    2 o    # 46 à 1500 o # 4 o #
+    ################################################################################
 
     
 * SFD (1 octet) est utilisé à des fins de synchronisation.
@@ -66,5 +66,5 @@ Les commutateurs à mémoire tampon sont préférables pour des communications e
 ### Auto-MDIX
 Détecte le type de cable connecté qu commutateur. Certaines interfaces réseau n'en sont pas équipées à partir de Cisco IOS 12 entre autres.
 
-### ARP : voir la page [IPv4](IPv4.md)
+### ARP : voir la page [IPv4](ipv4.md)
 
