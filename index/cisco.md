@@ -126,3 +126,13 @@ Le tout apparaît avec un `show running-config`, ne pas oublier de chiffrer les 
 * `Ctrl+R/I/L` Rappelle une ligne interrompue par un message IOS (du genre `GigabitEthernet0/0 is up`).
 * `Espace` dans le cas d'une commande `| more`, permet de changer d'écran.
 
+# Lire un `show ip route`
+Ici : https://www.cisco.com/E-Learning/bulk/public/tac/cim/cib/using_cisco_ios_software/cmdrefs/show_ip_route.htm  
+
+D : route EIGRP
+O : route OSPF
+R : route RIP
+-----
+S : route statique
+C : route automatique
+L : interface locale (IP routeur)
