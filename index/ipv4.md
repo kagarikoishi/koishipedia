@@ -2,9 +2,10 @@
 ________
 
 1. Pourquoi IPv4 ?   
-2. Le bal masqué des adresses Internet  
-3. Les classes (abrogées)  
-4. Le protocole ARP  
+2. Fonctionnement d'IPv4
+3. Le bal masqué des adresses Internet  
+4. Les classes (abrogées)  
+5. Le protocole ARP  
 ____________
 
 ## Pourquoi IPv4 ?
@@ -12,8 +13,21 @@ ____________
 Le protocole Internet version 4 est le premier protocole crée pour naviguer sur Internet, aux alentours de 1972. Simple d'utilisation par rapport à IPv6 (notamment du fait que son écriture soit en base décimale et assez courte pour être facilement retenue), elle a un certain nombre de contraintes qui lui sont propres : 
 * C'est un vieux protocole qui a besoin d'autres protocoles qui sont d'une sécurité plus que relative (les attaques homme du milieu sont faciles).
 * Il est problématique en WAN car la totalité des IP adressables (hors translation d'adresse / NAT) est limitée à 4,2 milliards d'adresses.
-* Il est cependant utilisé par toutes les interfaces d'administation matérielles.
+* Il n'est "pas fiable" ; une route décidée par IP peut fermer d'un seul coup ; les paquets vont alors disparaître et devront être réémis. 
+* Il est cependant utilisé par toutes les interfaces d'administation matérielles (car il est pratiquement impossible de retenir une adresse IPv6).
 * Il est connu et utilisé par tous les admins réseau.
+
+## Fonctionnement d'IPv4
+
+    Entête IP : 24 octets (b = bits, o = octet)
+    ###########################################################################################
+    ## Vers | IHL # Svc # LgT # Etq | PFra # TTL # Pro # CRC # IP. src # IP. dst #   Option  ##
+    ##  4 b | 4 b # 1 o # 2 o # 3 b | 13 b # 1 o # 1 o # 2 o #   4 o   #   4 o   #  0 - 40 o ##
+    ###########################################################################################
+    Vers : version, IHL : Internet Header Length, Svc : Service, LgT : Longueur Totale, Etq : étiquette (flag), PFra : Position Fragment, TTL : Time to Live, Pro : Protocole L4, CRC : somme de contrôle,
+
+IPv4 se greffe au-dessus [de la couche liaison](liaison.md) et en adopte des contraintes ; la couche liaison dicte la taille maximale des paquets (MTU), et a pour but et unique fonction de pouvoir transférer un paquet d'une source à une destination.  
+Paradoxalemement c'est probablement le protocole Internet le plus connu (avec [IPv6](ipv6.md)), notamment du fait qu'il est indispensable au fonctionnement des protocoles applicatifs DNS que tout le monde utilise [(DNS permet de lier une adresse IP à un nom et un FQDN](dns.md)) et DHCP qui alloue automatiquement une IP a un poste donné.
 
 ## Les classes IP
 
