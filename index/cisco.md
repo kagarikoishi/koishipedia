@@ -23,7 +23,9 @@ La plupart de ces commandes seraient communes au mode console d'autres systèmes
 _____________
 	
 > enable : lance le terminal. 
-> **sh**ow ip [route] [address] [nat translations] : Montrer les routes/adresses/... configurées sur le routeur.  
+> **sh**ow {ip|ipv6} [route] [address] [nat translations] [rip, ospf, eigrp] : Montrer les routes/adresses/... configurées sur le routeur.  
+>
+> show [interface] [version] >> show ? liste les commutateurs possibles.
 > 
 > ping, tracert : identique aux OS client/serveur 
 >  
@@ -32,7 +34,9 @@ _____________
 > **ex**it : sortir d'un niveau de terminal   
 > 
 > > **conf**igure **t**erminal : Entre en mode privilégié (configuration)  
-> >   
+> >  
+> > ip default-gateway : Configure une passerelle par défaut pour configurer un switch a distance.
+> >
 > > ip route 0.0.0.0 "réseau distant" 0.0.0.0 "sous-masque IP" 0.0.0.0 "passerelle" : Définir une route  
 > >   
 > >  **in**terface  "type :" **gi**gabitethernet 0/0 "numéro" : Configurer une interface réseau (FastEthernet, GigabitEthernet, Ethernet)
@@ -40,12 +44,14 @@ _____________
 > >  >   
 > >  > **no sh**utdown : Mise en service de l'interface (hors-service par défaut sur un routeur)   
 > >  > 
+> >  > **des**cription : Ajouter une description pour une interface.
+> >  > 
 > >  > **sh**utdown : Fermeture de la connexion.  
 > >  >   
 > >  > **ip nat in**side : définit l'interface comme le coté interne du NAT/PAT.  
 > >  >    
 > >  > **ip nat ou**tside : définit l'interface comme le coté externe du NAT/PAT.   
->>
+> >
 > >  **ro**uter **rip** : Entrer sur l'interface de routage RIP.  
 > >  >  
 > >  >  **v**ersion **2** : par défaut la V1 est utilisée (qui utilise le [mécanisme des classes](ipv4.md))  
@@ -126,7 +132,7 @@ Le tout apparaît avec un `show running-config`, ne pas oublier de chiffrer les 
 * `Ctrl+R/I/L` Rappelle une ligne interrompue par un message IOS (du genre `GigabitEthernet0/0 is up`).
 * `Espace` dans le cas d'une commande `| more`, permet de changer d'écran.
 
-# Lire un `show ip route`
+## Lire un `show ip route`
 Ici : https://www.cisco.com/E-Learning/bulk/public/tac/cim/cib/using_cisco_ios_software/cmdrefs/show_ip_route.htm  
 
 D : route EIGRP  
@@ -135,3 +141,8 @@ R : route RIP
 S : route statique  
 C : route automatique  
 L : interface locale (IP routeur)  
+
+`D 10.1.1.0/24 90 2170112 via 162.12.1.35 00:00:05, Serial 0/0/0`
+90 : distance administrative de la route. 
+2170112 : Métrique. Plus faible c'est, mieux c'est (Yoda)
+00:00:05 : Derniere émission connue du routeur.
