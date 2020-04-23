@@ -2,6 +2,7 @@
 ## Fonctionnement
 ### En-tête
 
+    Longueur de l'en-tête sans options : 40 octets (320 bits).
     ###########################################################
     ## Ver # Cla # Label # Lng # Ets # TTL # IP src # IP dst ##
     ## 4 b # 1 o #  20b  # 2 o # 1 o # 1 o #  16 o  #  16 o  ##
