@@ -24,7 +24,9 @@ Le protocole Internet version 4 est le premier protocole crée pour naviguer sur
     ## Vers | IHL # Svc # LgT # Etq | PFra # TTL # Pro # CRC # IP. src # IP. dst #   Option  ##
     ##  4 b | 4 b # 1 o # 2 o # 3 b | 13 b # 1 o # 1 o # 2 o #   4 o   #   4 o   #  0 - 40 o ##
     ###########################################################################################
-    Vers : version, IHL : Internet Header Length, Svc : Service, LgT : Longueur Totale, Etq : étiquette (flag), PFra : Position Fragment, TTL : Time to Live, Pro : Protocole L4, CRC : somme de contrôle,
+    Vers : version, IHL : Internet Header Length, Svc : Service, LgT : Longueur Totale, 
+    Etq : étiquette (flag), PFra : Position Fragment, TTL : Time to Live, Pro : Protocole L4, 
+    CRC : somme de contrôle,
 
 IPv4 se greffe au-dessus [de la couche liaison](liaison.md) et en adopte des contraintes ; la couche liaison dicte la taille maximale des paquets (MTU), et a pour but et unique fonction de pouvoir transférer un paquet d'une source à une destination.  
 Paradoxalemement c'est probablement le protocole Internet le plus connu (avec [IPv6](ipv6.md)), notamment du fait qu'il est indispensable au fonctionnement des protocoles applicatifs DNS que tout le monde utilise [(DNS permet de lier une adresse IP à un nom et un FQDN](dns.md)) et DHCP qui alloue automatiquement une IP a un poste donné.
