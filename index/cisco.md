@@ -129,10 +129,9 @@ Le tout apparaît avec un `show running-config`, ne pas oublier de chiffrer les 
 # Lire un `show ip route`
 Ici : https://www.cisco.com/E-Learning/bulk/public/tac/cim/cib/using_cisco_ios_software/cmdrefs/show_ip_route.htm  
 
-D : route EIGRP
-O : route OSPF
-R : route RIP
------
-S : route statique
-C : route automatique
-L : interface locale (IP routeur)
+D : route EIGRP  
+O : route OSPF  
+R : route RIP  
+S : route statique  
+C : route automatique  
+L : interface locale (IP routeur)  
