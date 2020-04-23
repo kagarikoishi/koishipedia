@@ -3,10 +3,11 @@
 ## 1.1 : le visage d'une trame de liaison - MAC ([Wikipédia](https://en.wikipedia.org/wiki/Ethernet_frame))
     
     Longeur d'une trame Ethernet II : 64 à 1530 octets.
-    -----------------------------------------------------------------------------
-    | Préambule |SFD | MAC dst | Mac src |802.1Q| EtherType |   Données   | FCS |
-    |    7 o    | 1o |   6 o   |   6 o   |  4o  |    2 o    | 46 à 1500 o | 4 o |
-    -----------------------------------------------------------------------------
+    ********************************************************************************
+    * Préambule * SFD * MAC dst * Mac src * 802.1Q * EtherType *   Données   * FCS *
+    *    7 o    * 1 o *   6 o   *   6 o   *  4 oc  *    2 o    * 46 à 1500 o * 4 o *
+    ********************************************************************************
+
     
 * SFD (1 octet) est utilisé à des fins de synchronisation.
 * Préambule : permet au récepteur de se préparer à recevoir une nouvelle trame.
