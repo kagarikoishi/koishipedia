@@ -89,7 +89,7 @@ HKEY LOCAL MACHINE :  Contient les informations qui sont générales à tous les
 
 c:\Windows\sysvol est utilisé par les GPO, et utilise les ports SMB pour se propager (TCP/UDP 137-139, 445)
 
-Les GPO se propagent de l'ordinateur local, puis au site, au domaine et enfin au niveau de l'OU.
+Les GPO se propagent de l'ordinateur local, puis au site, au domaine et enfin au niveau de l'OU, et s'appliquent en général au bout de 90 mn (sauf si une déconnexion ou un redémarrage est nécessaire...) pour forcer une mise à jour, il est possible de faire une MàJ forcée via `gpupdate /force`. `gpresult` permet d'imprimer les GPO activées.
 
 ### Astuces
 CMD, en tant qu'admin
