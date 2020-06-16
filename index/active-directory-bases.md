@@ -39,7 +39,7 @@ Active Directory existe en plusieurs déclinaisons, qui permettent d'avoir des r
 
 * AD-DS : Contrôleur de domaine pour Active Directory, l'annuaire le plus répandu de la liste.
 * AD-LDS : Similaire au précédent, il est plus léger et surtout en lecture seule. Il n'est qu'un annuaire.
-* AD-RMS : Permet de gérer les permissions d'accès à part d'un AD-DS et de protéger les documents ainsi qu'une gestion centralisée des mots de passe. Les fichiers partagés deviennet illisibles en dehors du domaine.
+* AD-RMS : Permet de gérer les permissions d'accès à part d'un AD-DS et de protéger les documents ainsi qu'une gestion centralisée des mots de passe. Les fichiers partagés deviennent illisibles en dehors du domaine.
 * AD-CS : Gestion des certificats pour les serveurs du domaine (cetrificats SSL...) et sert de PKI. Il peut être autonome (bien que peu utile).
 * AD-FS : Service de fédération d'un ensemble de contrôleurs.
 
@@ -59,16 +59,39 @@ Dits maîtres d'opérations, ils permettent de désigner un contôleur de domain
 
 Ce sont ceux-ci :
 * Maître d’attribution des noms de domaine : Gère l'attirbutions de noms de domaine. AKA DNS-SOA.
-* Contrôleur de schéma : Est le maître du shéma LDAP qui lie les serveurs de la forêt Active Directory.
+* Contrôleur de schéma : Est le maître du schéma LDAP qui lie les serveurs de la forêt Active Directory.
 * Maître RID : Maître des identifiants utilisateurs relatifs au domaine (RID, par opposition à l'identifiant SID) Cet identifiant est connu sous [ldap](slapd.md) comme UID et GID (User et Group IDentifier)
 * Maître d’infrastructure : C'est le contrôleur qui est en charge de lier les utilisateurs et groupes ainsi que les objets Active Directory (lien entre les SID et GUID).
 * Émulateur PDC : Primary Domain Controller, maître choisi pour la **réplication des mots de passe et le serveur de temps**. C'est aussi un émulateur de maître de domaine pour Microsoft NT 4.0 (W95/W98).
 * La gestion des maîtres d’opération :
 
 ## Les Group Policies (GPO) et gestion d'utilisateurs sous AD :
-*similaires à ce que l'on retrouve sur gpedit.msc*  
-sysvol est utilisé pour les GPO, il utilise les ports SMB (137-139, 445)
+*idnetiques à ce que l'on retrouve sur la console gpedit.msc*  
 
+GPO :  Stratégies de groupe, fonctions permettant une gestion centralisée afin de restreindre les actions et les risques potentiels des objets (utilisateurs et ordinateurs).
+Exemples : 
+•    Le verrouillage du panneau de configuration,
+•    La restriction de l’accès à certains dossiers,
+•    La désactivation de l’utilisation de certains exécutables,
+Les stratégies de groupe peuvent contrôler :
+•    Clés de registre
+•    La sécurité NTFS
+•    La politique de sécurité et d’audit
+•    L’installation de logiciel
+•    Les scripts de connexion et de déconnexion
+•    La redirection des dossiers
+•    Les paramètres d’Internet Explorer
+
+Registry Local : Est une base de donnée utilisée par le système d’exploitions. Contient les données de configuration du système d’exploitation et des autres logiciels désirant s’en servir.
+Les GPO modifient la base de registre :
+HKEY CURRENT USER : Gère les configurations des utilisateurs en cours
+HKEY LOCAL MACHINE :  Contient les informations qui sont générales à tous les utilisateurs de l’ordinateur
+
+c:\Windows\sysvol est utilisé par les GPO, et utilise les ports SMB pour se propager (TCP/UDP 137-139, 445)
+
+Les GPO se propagent de l'ordinateur local, puis au site, au domaine et enfin au niveau de l'OU.
+
+### Astuces
 CMD, en tant qu'admin
 
     > redirusr "OU=GRETA,DC=TARS,DC=priv"  
@@ -81,3 +104,10 @@ idem, pour un ordinateur.
 Le but de ces deux commandes est d'éviter la création de nouvaux Users/computers dans les OU par défaut d'ActiveDirectory.
 
 *Le mappage de disque* présent dans les paramètres GPO permet de pouvoir mettre en commun un disque en évitant à la fois d'utiliser un script [Powershell](powershell.md) (quoique plus indiqué et peut-être plus simple) ou un script batch (qui ne permettra pas de confidentialité et est donc à proscrire).
+
+
+# Détails complémentaires
+## Sysvol (C:\Windows\SYSVOL par défaut)
+Contient les scripts de connexions et le GPO.  
+Pour le reste, voir : https://www.it-connect.fr/chapitres/le-partage-sysvol-et-la-replication/
+## NTDS.DIT (C:\Windows\NTDS.DIT  par défaut)
