@@ -5,7 +5,8 @@ Un article de Koishipédia
 Cet article est une partie à propos du fonctionnement de [Windows Server](windows-server-bases).   
 Pour la partie Linux d'Active Directory c'est la partie [ldap/Active Directory](slapd-ad.md) qu'il faudra consulter.  
 Pour la partie Azure Active Directory c'est dans la page sur [Microsoft Azure](azure.md).  
-Cette page décrit le fonctionnement théorique d'AD et ne rentre pas dans les détails Powershell [qui est ici](powershell/ad.md)  
+Cette page décrit le fonctionnement théorique d'AD et ne rentre pas dans les détails Powershell [qui sont ici](powershell/ad.md)  
+Il est prévu une division de la page en plusieurs parties (notamment les GPO qui devraient être sur une page à part)
 
 Sommaire :   
 
