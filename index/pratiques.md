@@ -30,36 +30,3 @@
 	* par exemple ; un serveur mandataire (ou proxy) est un entremetteur entre vous et la personne à qui vous n'osez pas parler.
 
 Koishipédia, version n°1 du 25 Février 2020 / 20:26
-
-# D'autres bonnes pratiques
-## Gérer un projet.
-Il faut agir de manière simple et logique : de petites tâches, une forte automatisation des procédures (une procédure pour tout ce qui risque d'arriver, en commençant par celles qui seront reproduites 14000 fois (changer un mot de passe...), en appliquant un système de gestion par type (incident, panne, problèmes, application de projets, test, production).
-Si cela a une certaine lourdeur (puisque cela implique beaucoup d'applicatif -idéalement automatisée, au moins au niveau de la description du fait/incident puisqu'il est peu probable qu'un commercial sache ce qu'est une erreur de segmentation...  
-Néanmoins cela signifie que la personne en charge de la gestion du SI (le fameux DSI) doit être au fait de l'art de la gestion de projet (**références ITIL par ex**), ne doit pas avoir une forte délégation (qui provoque une lourdeur extrême et empêche une réaction rapide puisqu'il faudra 33120 réunions pour adopter une solution).
-
-Mais avant de lancer un projet, il est sain et logique de se demander, indépendament de la méthode :
-
-#### Lancer un projet.
-* Le projet est-il utile et réalisable ?
-* Le projet est-il pertinent (il peut être utile sans qu'il y ait un intérêt à le réaliser).
-* Le projet est il prioritaire ? (éviter de faire un projet qui se base sur quelque chose qui n'existe pas encore).
-* Quelles ressources sont allouables au projet (prix et moyens humains, temps a réaliser)
-#### Continuer un projet
-* Le projet est-il encore pertinent **(à ne surtout pas mettre en parallèle aux avancées déja faites et aux moyens mis en place)**
-	* Autrement dit, le projet est-il devenu un coût irrécupérable ?
-		* Le contenu du projet est-il réutilisable ?
-		* Ou faut-il juste arrêter le projet car il est inutilisable en l'état ?
-* Le projet est-il encore prioritaire ou non.
-	* Continuer sur le projet
-	* Allouer plus de moyens si il est prioritaire.
-	* Mettre en pause le projet si non prioritaire.
-* Le projet est-il en train de devenir trop complexe ?
-	* Faut-il le diviser en nouvaux sous-projets ?
-	* Faut-il allouer plus de moyens (en personnel) et / ou de responsabilités ?
-	* Faut-il déléguer le projet à des personnes plus compétentes ?
-* Faut-il repenser la gestion du projet ?
-#### Achèvement du projet
-* Est-il temps de condsidérer le projet comme achevé et passer à autre chose ?
-* Il est temps de le tester avant de l'envoyer en production.
-
-	

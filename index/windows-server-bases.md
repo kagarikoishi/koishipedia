@@ -1,8 +1,8 @@
 # Le Serveur Windows - Windows 2016
-Windows Server est un système d'exploitation qui consiste principalement à appuyer sur Suivant. 
+Windows Server est un système d'exploitation qui consiste principalement à appuyer sur Suivant.
 Malgré ce défaut qui le rend particulièrement inintéressant, il est possible de ne plus sentir sa souris au bout de quelques heures et de produire une connerie qui risque de le rendre instable.
 
-### Les conneries 
+### Les conneries
 
 * [Active Directory (lien récursif)](active-directory-bases.md)
 * Seveur DNS et DHCP (ne mérite pas de page supplémentaire)
@@ -14,10 +14,16 @@ Le DNS est un peu plus complexe. Il faudra modifier les enregistrements pour fai
 * Serveur de déploiement de mises à jour (WSUS).
 * Sauvegarder et faire une backup du Serveur.  
 * Serveur HTTP Intranet (Microsoft IIS)
-C'est assez simple et peu utile. 
-* Powershell (aka. Comment trouver des scripts pour automatiser la création de nouveaux utilisateurs -- et les désactiver pour ne pas perdre son emploi).
+C'est assez simple et peu utile.
+* [Powershell](powershell/readme.md) (aka. Comment trouver des scripts pour automatiser la création de nouveaux utilisateurs -- et les désactiver pour ne pas perdre son emploi).
 * Gestion de certificats.
 * Sans oublier [les bonnes pratiques](pratiques).
 
 _________________
+Résolution de pannes :
 
+Pour lire une DLL : DLL Export Viewer (pour savoir ce qui a pu provoquer un écran bleu...)
+Les dumps sont dans `C:\Windows\Dumps`
+WinDBG peut lire les dumps.
+Pour améliorer votre expérience, il est préférable de supprimer ntdll.dll de votre windows.
+Utilisez aussi Windows SystemInternals.
